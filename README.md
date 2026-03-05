@@ -133,11 +133,6 @@ Os textos utilizados nesta etapa estão no repositório na subpasta **`assets/do
 Essas técnicas permitem estruturar conhecimento a partir de literatura e relatórios em português, apoiar chatbots com respostas baseadas em evidências, triagem de dúvidas de pacientes e produção de material educativo personalizado — alinhado ao suporte digital ao paciente e à governança de informação em saúde no projeto CardioIA.
 
 
-## 🔧 Como executar o código
-
-*Acrescentar as informações necessárias sobre pré-requisitos (IDEs, serviços, bibliotecas etc.) e instalação básica do projeto, descrevendo eventuais versões utilizadas. Colocar um passo a passo de como o leitor pode baixar o seu código e executá-lo a partir de sua máquina ou seu repositório. Considere a explicação organizada em fase.*
-
-
 ## 🗃 Histórico de lançamentos
 
 * 0.1.0 - 04/03/2026
