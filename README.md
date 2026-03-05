@@ -83,6 +83,35 @@ Os dados são **reais e anonimizados**, provenientes do **UCI Machine Learning R
 | **frequência cardíaca máxima** | Reflete capacidade funcional e resposta ao esforço. | Indicador de isquemia e capacidade de exercício em modelos de prognóstico. |
 | **histórico/resultado (diagnóstico)** | Desfecho clínico (angiografia): ausência ou gravidade da doença. | Variável alvo para classificação binária ou multiclasse em modelos de ML. |
 
+### Legenda dos códigos (enumeradores)
+
+As colunas categóricas do dataset usam códigos numéricos. Significado conforme documentação do UCI Heart Disease:
+
+**sexo**
+
+| Valor | Significado |
+|-------|-------------|
+| 0 | Feminino |
+| 1 | Masculino |
+
+**sintomas_tipo_dor_peito** (tipo de dor no peito)
+
+| Valor | Significado |
+|-------|-------------|
+| 1 | Angina típica |
+| 2 | Angina atípica |
+| 3 | Dor não anginosa |
+| 4 | Assintomático |
+
+**historico_doenca_cardiaca** (diagnóstico angiográfico)
+
+| Valor | Significado |
+|-------|-------------|
+| 0 | Sem doença significativa (estreitamento &lt; 50% do diâmetro do vaso) |
+| 1 | Doença presente (estreitamento ≥ 50% em pelo menos um vaso principal) |
+| 2, 3, 4 | Maior extensão/gravidade da doença |
+
+
 Essas variáveis permitem treinar modelos de triagem, diagnóstico assistido e estimativa de risco, alinhados ao ecossistema de cardiologia inteligente do CardioIA.
 
 
