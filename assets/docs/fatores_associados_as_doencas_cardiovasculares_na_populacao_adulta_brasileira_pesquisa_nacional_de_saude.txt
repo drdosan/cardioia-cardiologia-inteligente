@@ -1,0 +1,293 @@
+RESUMO:
+Objetivo:
+Estimar a prevalência e investigar os fatores sociodemográficos, de saúde e estilo de vida associados ao diagnóstico autorreferido de doença cardiovascular na população adulta brasileira.
+
+Métodos:
+Analisaram-se dados da Pesquisa Nacional de Saúde (2019). A presença de doença cardiovascular foi autorreferida por meio da pergunta: “Algum médico já lhe deu o diagnóstico de uma doença do coração?”. Avaliaram-se fatores sociodemográficos, condições de saúde e estilo de vida. Para analisar os dados, utilizou-se a regressão de Poisson com variância robusta.
+
+Resultados:
+5,3% (IC95% 5,04–5,57) dos adultos brasileiros referiram doença cardiovascular, destes, 29,08% (IC95% 27,04–31,21) realizaram cirurgia de revascularização miocárdica ou angioplastia coronariana e 8,26% (IC95% 7,09–9,60) relataram limitação intensa nas atividades habituais pela doença cardiovascular. Os fatores associados à doença cardiovascular foram idade avançada; ser do sexo masculino; raça/cor branca; ter ensino fundamental completo e médio incompleto; possuir plano de saúde; autoavaliar a saúde como regular ou ruim/muito ruim; autorrelatar hipertensão, colesterol alto e diabetes; ser ex-fumante; consumir frutas e hortaliças conforme o recomendado; não consumir álcool de forma abusiva; não praticar atividade física no lazer.
+
+Conclusões:
+A doença cardiovascular está associada a fatores sociodemográficos, de saúde e estilos de vida. Torna-se importante apoiar políticas públicas, programas e metas para reduzir doenças cardiovasculares no Brasil, especialmente nos grupos mais vulneráveis.
+
+Palavras-chave:
+Doenças cardiovasculares; Fatores de risco; Inquéritos epidemiológicos; Brasil
+
+INTRODUÇÃO
+As doenças cardiovasculares (DCV) são a principal causa de mortalidade no Brasil e no mundo, além de ocasionar aumento da morbidade, mortalidade prematura, incapacidades, perda da qualidade de vida e dos custos diretos e indiretos à saúde1.
+
+De acordo com as estimativas do estudo Global Burden of Disease (GBD), globalmente, os casos prevalentes de DCV aumentaram de forma significativa entre 1990 e 2019, passando de 271 milhões para 523 milhões, respectivamente2. Houve também aumento do número de mortes por DCV de 12,1 milhões em 1990 para 18,6 milhões, em 2019. Soma-se ainda o crescimento das tendências globais para os anos vividos com incapacidade (years lived with disability – YLD), que dobraram ao longo desses anos, de 17,7 milhões para 34,4 milhões2. No Brasil, o cenário é semelhante, as DCV constituem a primeira causa de óbitos desde a década de 19903. Houve um crescimento da mortalidade, passando de 270 mil em 1990 para 400 mil mortes em 2019, o que corresponde a 48% do total de óbitos3. Essas doenças também são as principais causas de anos de vida perdidos ajustados por incapacidade (disability-adjusted life of years – DALY). Em 1990, provocaram 7.006.214 de DALY, e, em 2019, houve um aumento para 8.861.401 (27% do total de DALY)3.
+
+O aumento das DCV está relacionado com o envelhecimento da população e com os fatores de risco clássicos, como hipertensão arterial, diabetes, dislipidemias, obesidade, sedentarismo, tabagismo, dieta inadequada, estresse e histórico familiar1. Ademais, as questões sociodemográficas, étnicas, culturais, dietéticas e comportamentais são fortes preditores de causalidade, morbidade e mortalidade prematura e podem também explicar as diferenças na carga de DCV entre as populações e suas tendências ao longo dos anos1.
+
+Para prevenir as DCV, torna-se necessário o fortalecimento das medidas de proteção e de promoção da saúde, especialmente aquelas que promovem os hábitos de vida saudáveis, o acesso às medidas para prevenção primária e secundária de DCV, associados ao tratamento de eventos cardiovasculares1. Além disso, o monitoramento, a vigilância dos fatores de risco e as ações integradas devem ser prioritários para enfrentar essas doenças, por permitirem, com base em evidências, o desenvolvimento de estratégias com maior custo-efetividade4. Destaca-se também a importância das políticas sociais e econômicas, com vistas a reduzir as desigualdades e garantir o acesso universal e igualitário às ações e aos serviços de saúde5,6.
+
+Um estudo realizado no Brasil, em 2013, evidenciou maior ocorrência de DCV em pessoas do sexo feminino, idosos, portadores de hipertensão, diabetes, dislipidemias, sobrepeso, obesidade e com comportamentos não saudáveis, como tabagismo e inatividade física7. Contudo tem-se observado tendência de aumento da prevalência das DCV8 e mudanças no comportamento de alguns fatores de risco6,8. Um estudo evidenciou que, entre 2006 e 2014, houve redução de fumantes e aumento da obesidade, do consumo de frutas e hortaliças, de atividade física e do uso de álcool. No entanto, a partir de 2015, o cenário alterou, ocorrendo redução do consumo de frutas e hortaliças, estabilidade da prática de atividade física e aumento do consumo abusivo de álcool6. Cabe destacar que, a partir de meados de 2014, ocorreram crises econômicas e políticas no Brasil e foram implementadas políticas de austeridade, como a aprovação da Emenda Constitucional no 95 (EC95)9, que resultaram na diminuição dos investimentos em políticas sociais e de saúde, aumento das desigualdades, além de redução da oferta de bens e serviços de saúde, agravamento das comorbidades e impactos nas taxas de mortalidade10–13.
+
+Nesse sentido, torna-se necessário monitorar a prevalência das DCV e seus fatores de risco nos adultos brasileiros, especialmente em um cenário de instabilidade político-econômica e social. Portanto, o presente estudo objetivou estimar a prevalência e investigar os fatores sociodemográficos, de saúde e estilo de vida associados ao diagnóstico autorreferido de DCV na população adulta brasileira.
+
+MÉTODOS
+Estudo transversal com dados da Pesquisa Nacional de Saúde (PNS) de 2019, que é um inquérito de base populacional, representativo da população brasileira, realizado pelo Instituto Brasileiro de Geografia e Estatística (IBGE) em parceria com o Ministério da Saúde (MS)14.
+
+O questionário da PNS foi dividido em três partes:
+Informações do domicílio;
+
+Informações de todos os moradores; e
+
+Informações sobre um indivíduo selecionado aleatoriamente.
+
+A população-alvo da PNS de 2019 consistiu em indivíduos com 15 anos ou mais de idade, residentes em domicílios particulares permanentes. A amostra foi por conglomerados em três estágios, sendo os setores censitários a unidade primária, os domicílios a secundária e um morador com 15 anos ou mais a terciária. Os domicílios e os moradores foram selecionados por amostragem aleatória simples. O tamanho mínimo definido para a amostra foi de 108.525 domicílios, e a amostra final foi de 94.114 domicílios com entrevista realizada, com uma taxa de resposta de 93,6%14. Para as análises do presente estudo, excluíram-se os indivíduos abaixo de 18 anos, totalizando 88.531 indivíduos. Maiores detalhes sobre a metodologia da PNS podem ser obtidos em publicações anteriores14,15.
+
+O diagnóstico de DCV foi autorreferido e avaliado pela questão: “Algum médico já lhe deu o diagnóstico de uma doença do coração, tais como infarto, angina, insuficiência cardíaca ou outra?”. Consideraram-se como portadores de DCV os indivíduos que responderam “SIM” para essa questão.
+
+Para os indivíduos que relataram o diagnóstico de DCV, avaliaram-se as seguintes perguntas: idade no primeiro diagnóstico de DCV; realização de cirurgia de ponte de safena ou cateterismo com colocação de stent ou angioplastia; grau de limitação nas atividades habituais por doença cardíaca; cuidados por DCV (realização de dieta; prática de atividade física regular; uso regular de medicamentos; acompanhamento regular com profissional de saúde).
+
+No que diz respeito aos fatores associados, avaliaram-se os seguintes fatores:
+Características sociodemográficas:
+Sexo: masculino e feminino;
+
+Faixa etária: 18 a 24, 25 a 39, 40 a 59 e 60 ou mais;
+
+Escolaridade: sem instrução e fundamental completo, fundamental completo e médio incompleto, médio completo e superior incompleto e superior completo;
+
+Raça/cor: branca, parda, preta e outras (amarela e indígena);
+
+Renda em salários mínimos (SM): até 1 SM, 1 a 3 SM, 3 a 5 SM e 5 ou mais SM;
+
+Regiões: Norte, Nordeste, Sudeste, Sul e Centro-Oeste;
+
+Posse de plano de saúde: sim ou não.
+
+Condições de saúde:
+Autoavaliação do estado de saúde: bom/ muito bom, regular e ruim/ muito ruim;
+
+Diagnóstico autorreferido de hipertensão arterial: sim, não;
+
+Diagnóstico autorreferido de diabetes: sim, não;
+
+Diagnóstico autorreferido de colesterol alto: sim, não;
+
+Estado nutricional: eutróficos (índice de massa corporal – IMC <25 kg/m2); sobrepeso (IMC entre 25 e 29 kg/m2); obesidade (IMC ≥30kg/m2)16. O IMC foi calculado com base no relato de medidas de peso e altura.
+
+Estilo de vida:
+Tabagismo: não fumante, ex-fumante e fumante;
+
+Consumo abusivo de bebida alcoólica: sim, não. Considerou-se abusivo o consumo de cinco ou mais doses em uma única ocasião14;
+
+Consumo recomendado de frutas e hortaliças (FH): sim, não. Considerou-se recomendado o consumo de FH em, pelo menos, 25 vezes por semana, tendo um consumo mínimo de cinco frutas (inclusive suco) e cinco hortaliças14;
+
+Consumo de alimentos ultraprocessados: sim ou não. Considerou-se “sim” o relato de consumo, no dia anterior à entrevista, de pelo menos cinco grupos dos seguintes alimentos industrializados: refrigerante; suco de fruta em caixinha ou lata ou refresco em pó; bebida achocolatada ou iogurte com sabor; salgadinho de pacote ou biscoito/bolacha salgado; biscoito/bolacha doce ou recheado ou bolo de pacote; sorvete, chocolate, gelatina, flan ou outra sobremesa industrializada; salsicha, linguiça, mortadela ou presunto; pão de forma, de cachorro-quente ou de hambúrguer; margarina, maionese, ketchup ou outros molhos industrializados; macarrão instantâneo, sopa de pacote, lasanha congelada ou outro prato congelado comprado pronto industrializado14;
+
+Ingestão elevada de sal: sim, não. Considerou-se elevada quando os indivíduos responderam “muito alto” ou “alto” à pergunta: “Considerando a comida preparada na hora e os alimentos industrializados, o(a) Sr.(a) acha que o seu consumo de sal é…”;
+
+Atividade física suficiente no lazer (AFL): sim; não. Consideraram-se ativos no lazer os indivíduos que relataram praticar pelo menos 150 minutos semanais de intensidade leve ou moderada ou 75 minutos semanais de intensidade vigorosa17.
+
+Para descrever os dados, calcularam-se as proporções e os intervalos de confiança de 95% (IC95%). Na verificação dos possíveis fatores associados a DCV, usou-se como medida de associação a razão de prevalência (RP), obtida por meio da regressão de Poisson com variância robusta. Incluíram-se no modelo multivariado as variáveis que apresentaram valor p<0,20 nas análises brutas. No modelo final, consideraram-se fatores associados as variáveis com valor de p≤0,05.
+
+Todas as análises foram realizadas no software Data Analysis and Statistical Software (Stata) versão 14, empregando-se o módulo survey que considera os pesos de pós-estratificação.
+
+A PNS 2019 foi aprovada pela Comissão Nacional de Ética em Pesquisa (CONEP) do MS, sob parecer número 3.529.376. A participação do adulto na pesquisa foi voluntária e a confidencialidade das informações garantida14. Os dados da PNS 2019 estão disponíveis para acesso e uso público no repositório do IBGE (https://www.ibge.gov.br/estatisticas/sociais/saude/9160-pesquisa-nacional-de-saude.html?=&t=download0s).
+
+RESULTADOS
+Avaliaram-se 88.531 indivíduos com idade acima de 18 anos. Destes, 5,3% (IC95% 5,0–5,6) relataram diagnóstico médico de DCV. A idade média do primeiro diagnóstico médico de DCV foi 46,7 anos (IC95% 45,6–47,9). Entre os adultos que referiram DCV, 29,1% (IC95% 27,0–31,2) realizaram cirurgia de ponte de safena ou angioplastia e 8,3% (IC95% 7,1–9,6) relataram limitação intensa nas atividades habituais pela DCV. No que se refere aos cuidados em saúde dada a DCV, 43,7% reportaram realizar dieta, 26,2% praticar AFL, 69,1% usar medicamentos e 69,9% fazer acompanhamento regular com um profissional de saúde (Material suplementar 1).
+
+A Tabela 1 apresenta a prevalência de DCV segundo características sociodemográficas, condições de saúde e relacionadas ao estilo de vida. Verificou-se maior prevalência de DCV entre as mulheres (5,6%); pessoas acima de 60 anos (13,1%); indivíduos com baixa escolaridade (7,8%); de cor/raça branca (6,1%); que recebem de 3 a 5 SM (6,1%); moradores da Região Sul (6,8%). Quanto às características de saúde e comportamentais, a maior prevalência de DCV foi entre aqueles que possuem plano de saúde (6,2%); avaliam a saúde como ruim ou muito ruim (17,1%); portadores de hipertensão (13,6%), diabetes (15,4%), colesterol alto (13,4%), obesidade (7,0%); ex-fumantes (7,9%); com consumo recomendado de frutas e hortaliças (7,2%); que não fazem uso abusivo de bebidas alcóolicas (5,9%); não têm ingestão elevada de sal (5,4%); não são fisicamente ativos no lazer (6,1%).
+
+ Thumbnail
+Tabela 1.
+Prevalência e razão de prevalência bruta para doenças cardiovasculares, segundo características sociodemográficas, condições clínicas e estilos de vida, Pesquisa Nacional de Saúde, Brasil, 2019.
+No modelo multivariado, observou-se que a maior prevalência de DCV está associada à idade de 60 anos ou mais (RP=2,8; IC95% 1,8–4,4); ter ensino fundamental completo a médio incompleto (RP=1,2; IC95% 1,0–1,4); ter plano de saúde (RP=1,4; IC95% 1,2–1,6); autoavaliação de saúde como regular (RP=2,0; IC95% 1,8–2,3) ou ruim/muito ruim (RP=3,1; IC95% 2,7–3,6); hipertensão (RP=2,3; IC95% 2,0–2,5), colesterol alto (RP=1,7; IC95% 1,5–1,9) e diabetes (RP=1,2; IC95% 1,1–1,3); consumo de frutas e hortaliças (RP=1,2; IC95% 1,1–1,4); ser ex-fumante (RP=1,2; IC95% 1,1–1,3). Em contrapartida, ser do sexo feminino (RP=0,8; IC95% 0,7–0,9), da raça/cor parda (RP=0,8; IC95% 0,7–0,9) ou preta (RP=0,8; IC95% 0,7–0,9), uso abusivo de álcool (RP=0,7; IC95% 0,6–0,9) e prática de AFL (RP=0,8; IC95% 0,7–0,9) estavam associados à menor prevalência de DCV (Tabela 2).
+
+ Thumbnail
+Tabela 2.
+Modelo multivariado dos fatores associados às doenças cardiovasculares, Pesquisa Nacional de Saúde, Brasil, 2019.
+DISCUSSÃO
+Este estudo identificou que aproximadamente 1 a cada 20 adultos brasileiros apresentou DCV, mostrando que o diagnóstico autorreferido da doença foi frequente no país. Cerca de um terço realizou cirurgia de revascularização miocárdica e/ou angioplastia coronariana e cerca de um décimo referiu limitação intensa. Os fatores associados positivamente às DCV foram: idade avançada; ter ensino fundamental completo e médio incompleto; possuir plano de saúde; autoavaliar a saúde como regular ou ruim/muito ruim; autorrelatar hipertensão, colesterol alto e diabetes; ser ex-fumante; consumir frutas e hortaliças conforme o recomendado. Em contrapartida, as menores prevalências de DCV foram entre as mulheres, aqueles com cor/raça parda e preta; que consomem álcool de forma abusiva e praticam AFL.
+
+No presente estudo, na análise bivariada as mulheres apresentaram maior prevalência de DCV, no entanto, no modelo multivariado, observou-se maior prevalência de DCV nos homens. Apesar de alguns estudos evidenciarem maiores prevalências de DCV nas mulheres18,19, a maioria dos estudos aponta fatores de risco mais elevados, como tabagismo, alimentação inadequada20–22, hipertensão arterial aferida23, entre homens, o que tem sido explicado por questões comportamentais e culturais e maior acesso aos serviços de saúde, aos cuidados com a saúde e adesão às práticas de promoção e prevenção entre as mulheres24–26. Ademais, a taxa de mortalidade, a perda de anos de vida saudáveis e as incapacidades pela DCV mostram-se mais elevadas entre homens3,18,27. Assim, considera-se consistente com a literatura maior prevalência de DCV entre homens.
+
+Como em outras pesquisas2,7,28, o presente estudo identificou maiores prevalências de DCV com o aumento da idade, com maior magnitude na faixa etária com 60 anos ou mais. A associação entre avanço da idade e aumento progressivo da DCV é fundamentada na literatura especialmente pelas alterações inerentes da senescência29,30. Além disso, a progressão da longevidade também pode proporcionar maior tempo de exposição a fatores de risco como poluição, tabagismo, alimentação não saudável e sedentarismo31, podendo contribuir para desenvolver as DCV32. Ademais, os idosos utilizam mais os serviços de saúde, o que pode contribuir para o diagnóstico de DCV25,33,34.
+
+A menor prevalência de DCV em pessoas das raças preta e parda manteve-se em conformidade com os resultados de estudos com dados da PNS de 20137. Embora tenham se apresentado como fator de proteção, é importante destacar a existência de disparidades étnico-raciais na saúde cardiovascular35, em que os indivíduos negros têm maiores riscos de mortalidade do que brancos36. No Brasil, as disparidades socioeconômicas e culturais podem levar a diferenças nos fatores de risco segundo raça/cor20. Um estudo identificou a maior ocorrência de fatores de risco cardiovascular em negros e pardos, como hipertensão arterial, pior padrão alimentar e inatividade física20. Assim, as possíveis explicações para os resultados do presente estudo devem-se ao maior acesso da população branca aos serviços de saúde, oportunizando mais diagnósticos de DCV25 e mais uso de procedimentos terapêuticos para definir a presença de DCV, e também pelo efeito do viés de sobrevivência, com a ocorrência de eventos fatais em negros e pardos, reforçando a importância de estudos no país para elucidar essa temática nas populações mais vulneráveis.
+
+Embora melhorias de acesso ao Sistema Único de Saúde (SUS) tenham acontecido em todo Brasil, neste estudo, indivíduos com posse de plano de saúde apresentaram maiores prevalência de DCV. Sabe-se que a utilização do serviço é determinada por uma necessidade percebida pelo usuário, decorrente de sua situação de saúde ou conhecimento prévio de doença37. Dessa forma, os dados aqui descritos podem refletir a maior facilidade de acesso ao diagnóstico médico pela população detentora de planos de saúde. Ressalta-se que, na PNS realizada em 2013, indivíduos sem posse de plano de saúde, com ou sem doenças crônicas não transmissíveis (DCNT), também tiveram menor prevalência de uso de serviços, internação e consulta médica37,38. Esses achados reforçam a necessidade de investimentos no SUS, para sanar essas diferenças em segmentos sociais da população37.
+
+O estudo atual mostrou que os indivíduos com autoavaliação de saúde ruim/muito ruim apresentaram maior prevalência de DCV. Os dados encontrados na presente pesquisa corroboram estudos anteriores em que a maioria dos indivíduos com DCV relatou pior percepção do seu estado de saúde7,39. O indicador autoavaliação ruim da saúde é um forte preditor de morbimortalidade e piores desfechos em saúde40. Destaca-se que esse indicador produz uma autoclassificação do indivíduo e mostra também o seu entendimento e percepção da doença, considerando-se sinais e sintomas, gravidade, riscos, incapacidades e impactos em seu bem-estar físico, mental e social41. Estudos mostram a associação positiva entre a autoavaliação e autopercepção regular e ruim com as DCV42,43. Assim, indivíduos com DCV tiveram 2,5 vezes a chance de avaliar o seu estado de saúde ruim42; com angina tiveram a chance de autopercepção ruim de saúde de 2,17 vezes; com insuficiência cardíaca a chance foi 5,21 vezes; e com infarto agudo do miocárdio 5,77 vezes43.
+
+As condições clínicas autorrelatadas, como hipertensão, diabetes e colesterol alto, apresentaram-se, neste estudo, como fatores de risco para o diagnóstico de DCV. A presença desses fatores de risco causa efeitos deletérios sobre o sistema cardiovascular, com impactos negativos na saúde, reforçando a causalidade múltipla das DCV44–47. Na hipertensão, o risco atribuível por elevação progressiva da pressão arterial é de aproximadamente 60% para acidente vascular cerebral e 50% para doença arterial coronariana (DAC)45,47. No diabetes, há maior risco de mortalidade por DCV, e as manifestações cardiovasculares mais comuns incluem insuficiência cardíaca, doença arterial periférica e DAC44. Já as dislipidemias cursam com risco aumentado de DCV ateroscleróticas46. Nesse contexto, é imperativo a contenção de fatores de riscos modificáveis com a implementação de intervenções, como acesso a tratamentos farmacológicos e não farmacológicos precoces29,48. Ressalta-se a importância da prevenção dessas comorbidades, não só para melhorar a condição de vida dos indivíduos, mas também para diminuir a carga global de DCNT na população29.
+
+No que tange ao estilo de vida da população brasileira, evidências indicam aumento proporcional das DCV em função do crescimento dos quatro principais fatores de risco, que incluem uso do tabaco, alimentação não saudável, inatividade física e consumo excessivo de bebidas alcoólicas47. Apesar de a prevalência do tabagismo no Brasil ter reduzido nas últimas décadas, ainda se tem uma elevada carga de doença associada a esse fator de risco21,49. No atual estudo, há uma possível explicação para a maior prevalência e associação positiva entre ex-fumantes e DCV, estando relacionada ao fato de essas pessoas terem cessado o hábito de fumar em função do diagnóstico médico de DCV, aderindo a mudanças de comportamentos dadas as orientações recebidas sobre os malefícios do tabagismo1, configurando um efeito de causalidade reversa. Esse mesmo efeito, possivelmente, ocorreu em relação à associação positiva de DCV com o uso de álcool e naqueles indivíduos que apresentaram consumo recomendado de FH, sugerindo-se possível mudança no estilo de vida, com melhoria no padrão alimentar e diminuição do consumo de álcool após o diagnóstico da doença. Isso também pode demostrar maior compreensão da doença e seus riscos, bem como da importância de adoção de hábitos saudáveis pelos participantes para prevenir piores desfechos clínicos1.
+
+Um resultado importante deste estudo foi o efeito positivo da AFL como fator protetor para DCV. A atividade física regular associa-se inversamente à mortalidade por todas as causas (entre essas, as cardiovasculares), configura fator de proteção para as DCNT e contribui para melhoria da qualidade de vida, do bem-estar físico e mental, além de auxiliar no controle do peso1,22.
+
+Devem ser consideradas algumas limitações do estudo, como a impossibilidade de estabelecer relação de causalidade, por se tratar de um estudo transversal. Embora seja frequente na literatura a investigação de DCV, que inclui as patologias cardíacas e cerebrovasculares, o presente estudo analisou somente as doenças do coração. Outro ponto que merece ser destacado é o fato de a PNS de 2019 coletar informações autorreferidas, o que pode estar sujeito a viés de informação, gerando estimativas menos precisas. Contudo se destaca que a PNS apresenta grande rigor metodológico, sendo a generalização dos resultados segura para estimativas nacionais. Ainda, utilizou-se critério teórico para as análises, e empregaram-se métodos estatísticos robustos.
+
+Apesar das limitações apresentadas, este estudo avança em achados sobre os fatores associados a DCV com dados de pesquisa robusta e de representatividade nacional em período posterior às políticas de austeridade econômica. Nesse sentido, é também relevante como uma análise anterior à pandemia da COVID-19, o que servirá de base na comparação de futuros estudos.
+
+Os resultados mostraram que a prevalência de DCV foi de aproximadamente 5% da população adulta brasileira. A DCV esteve associada a fatores sociodemográficos (sexo masculino, idade elevada, raça/cor branca, escolaridade média e posse de plano de saúde), de saúde (autoavaliação da saúde como regular ou ruim/muito ruim e diagnóstico de hipertensão, colesterol alto e diabetes) e relacionados ao estilo de vida (ex-fumante, consumo de frutas e hortaliças, uso de álcool e inatividade física). Essas informações podem apoiar políticas públicas, programas e metas para reduzir as DCV no Brasil, especialmente nos grupos mais vulneráveis.
+
+Referências bibliográficas
+1.
+Précoma DB, Oliveira GMM, Simão AF, Dutra OP, Coelho OR, Izar MCO, et al. Updated cardiovascular prevention guideline of the Brazilian Society of Cardiology - 2019. Arq Bras Cardiol 2019; 113(4): 787-891. https://doi.org/10.5935/abc.20190204
+» https://doi.org/10.5935/abc.20190204
+2.
+Roth GA, Mensah GA, Johnson CO, Addolorato G, Ammirati E, Baddour LM, et al. Global burden of cardiovascular diseases and risk factors, 1990-2019: update from the GBD 2019 study. J Am Coll Cardiol. 2020; 76(25): 2982-3021. https://doi.org/10.1016/j.jacc.2020.11.010
+» https://doi.org/10.1016/j.jacc.2020.11.010
+3.
+Institute for Health Metrics and Evaluation. GBD compare, viz hub. Institute for Health Metrics and Evaluation [Internet]. 2019 [cited on May 27, 2021]. Available at:https://vizhub.healthdata.org/gbd-compare/
+» https://vizhub.healthdata.org/gbd-compare/
+4.
+Malta DC, Cezário AC, Moura L, Morais Neto OL, Silva Junior JB. A construção da vigilância e prevenção das doenças crônicas não transmissíveis no contexto do Sistema Único de Saúde. Epidemiol Serv Saúde 2006; 15(3): 47-65. http://doi.org/10.5123/S1679-49742006000300006
+» http://doi.org/10.5123/S1679-49742006000300006
+5.
+Malta DC, Duncan BB, Barros MBA, Katikireddi SV, Souza FM, Silva AG, et al. Fiscal austerity measures hamper noncommunicable disease control goals in Brazil. Cien Saude Colet 2018; 23(10): 3115-122. https://doi.org/10.1590/1413-812320182310.25222018
+» https://doi.org/10.1590/1413-812320182310.25222018
+6.
+Silva AG, Teixeira RA, Prates EJS, Malta DC. Monitoring and projection of targets for risk and protection factors for coping with noncommunicable diseases in Brazilian capitals. Cien Saude Colet 2021; 26(4): 1193-206. https://doi.org/10.1590/1413-81232021264.42322020
+» https://doi.org/10.1590/1413-81232021264.42322020
+7.
+Gonçalves RPF, Haikal DSA, Freitas MIF, Machado ÍE, Malta DC. Self-reported medical diagnosis of heart disease and associated risk factors: National Health Survey. Rev Bras Epidemiol 2019; 22(Suppl 2): E190016.SUPL2. https://doi.org/10.1590/1980-549720190016.supl.2
+» https://doi.org/10.1590/1980-549720190016.supl.2
+8.
+Fundação Oswaldo Cruz. Painel de Indicadores de Saúde – Pesquisa Nacional de Saúde [Internet]. 2021 [cited on July 06, 2021]. Available at:https://www.pns.icict.fiocruz.br/painel-de-indicadores-mobile-desktop/
+» https://www.pns.icict.fiocruz.br/painel-de-indicadores-mobile-desktop/
+9.
+Brasil. Presidência da República. Casa Civil. Subchefia para Assuntos Jurídicos. Emenda Constitucional no 95, de 15 de dezembro de 2016. Altera o ato das disposições constitucionais transitórias, para instituir o novo regime fiscal, e dá outras providências. Diário Oficial da União, 2016. Available at:http://www.planalto.gov.br/ccivil_03/constituicao/emendas/emc/emc95.htm
+» http://www.planalto.gov.br/ccivil_03/constituicao/emendas/emc/emc95.htm
+10.
+Massuda A, Hone T, Leles FAG, Castro MC, Atun R. The Brazilian health system at crossroads: progress, crisis and resilience. BMJ Glob Health 2018; 3(4): e000829. https://doi.org/10.1136/bmjgh-2018-000829
+» https://doi.org/10.1136/bmjgh-2018-000829
+11.
+Paes-Sousa R, Schramm JMA, Mendes LVP. Fiscal austerity and the health sector: the cost of adjustments. Cien Saude Coletiva 2019; 24(12): 4375-84. https://doi.org/10.1590/1413-812320182412.23232019
+» https://doi.org/10.1590/1413-812320182412.23232019
+12.
+Doniec K, Dall’Alba R, King L. Brazil’s health catastrophe in the making. Lancet 2018; 392(10149): 731-2. https://doi.org/10.1016/S0140-6736(18)30853-5
+» https://doi.org/10.1016/S0140-6736(18)30853-5
+13.
+Malta DC, Duncan BB, Barros MBA, Katikireddi SV, Souza FM, Silva AG, et al. Fiscal austerity measures hamper noncommunicable disease control goals in Brazil. Cien Saude Coletiva 2019; 23(10): 3115-22. https://doi.org/10.1590/1413-812320182310.25222018
+» https://doi.org/10.1590/1413-812320182310.25222018
+14.
+Instituto Brasileiro de Geografia e Estatística. Pesquisa nacional de saúde: 2019: percepção do estado de saúde, estilos de vida, doenças crônicas e saúde bucal: Brasil e grandes regiões [Internet]. Rio de Janeiro: Instituto Brasileiro de Geografia e Estatística; 2020 [cited on May 27, 2021]. Available at:https://biblioteca.ibge.gov.br/visualizacao/livros/liv101764.pdf
+» https://biblioteca.ibge.gov.br/visualizacao/livros/liv101764.pdf
+15.
+Stopa SR, Szwarcwald CL, Oliveira MM, Gouvea ECDP, Vieira MLFP, Freitas MPS, et al. National Health Survey 2019: history, methods and perspectives. Epidemiol Serv Saude 2020; 29(5): e2020315. https://doi.org/10.1590/S1679-49742020000500004
+» https://doi.org/10.1590/S1679-49742020000500004
+16.
+World Health Organization. Obesity: preventing and managing the global epidemic: report of a WHO consultation [Internet]. Geneva: World Health Organization; 2000 [cited on May 27, 2021]. Available at:https://apps.who.int/iris/handle/10665/42330
+» https://apps.who.int/iris/handle/10665/42330
+17.
+World Health Organization. Global recommendations on physical activity for health. Geneva: World Health Organization; 2010. [cited on May 27, 2021]. Available at:https://www.who.int/publications/i/item/9789241599979
+» https://www.who.int/publications/i/item/9789241599979
+18.
+Appelman Y, van Rijn BB, Haaf MET, Boersma E, Peters SAE. Sex differences in cardiovascular risk factors and disease prevention. Atherosclerosis. 2015; 241(1): 211-8. https://doi.org/10.1016/j.atherosclerosis.2015.01.027
+» https://doi.org/10.1016/j.atherosclerosis.2015.01.027
+19.
+Vogel B, Acevedo M, Appelman Y, Merz CNB, Chieffo A, Figtree GA, et al. The Lancet women and cardiovascular disease commission: reducing the global burden by 2030. Lancet 2021; 397(10292): 2385-438. https://doi.org/10.1016/S0140-6736(21)00684-X
+» https://doi.org/10.1016/S0140-6736(21)00684-X
+20.
+Malta DC, Moura L, Bernal RTI. Differentials in risk factors for chronic non-communicable diseases from the race/color standpoint. Cien Saude Colet 2015; 20(3): 713-25. https://doi.org/10.1590/1413-81232015203.16182014
+» https://doi.org/10.1590/1413-81232015203.16182014
+21.
+Malta DC, Silva AG, Machado ÍE, Sá ACMGN, Santos FM, Prates EJS, et al. Trends in smoking prevalence in all Brazilian capitals between 2006 and 2017. J Bras Pneumol 2019; 45(5): e20180384. https://doi.org/10.1590/1806-3713/e20180384
+» https://doi.org/10.1590/1806-3713/e20180384
+22.
+Cardoso LSM, Gomes CS, Moreira AD, Bernal RTI, Ribeiro ALP, Malta DC. Fruit and vegetable consumption, leisure-time physical activity and binge drinking in Belo Horizonte, Brazil, according to the Health Vulnerability Index. Rev Bras Epidemiol 2021; 24 (suppl 1): e210013. https://doi.org/10.1590/1980-549720210013.supl.1
+» https://doi.org/10.1590/1980-549720210013.supl.1
+23.
+Malta DC, Santos NB, Perillo RD, Szwarcwald CL. Prevalence of high blood pressure measured in the Brazilian population, National Health Survey, 2013. Sao Paulo Med J 2016; 134(2): 163-70. doi: 10.1590/1516-3180.2015.02090911
+» 10.1590/1516-3180.2015.02090911
+24.
+Malta DC, Bernal RTI, Lima MG, Araújo SSC, Silva MMA, Freitas MIF, et al. Noncommunicable diseases and the use of health services: analysis of the National Health Survey in Brazil. Rev Saude Publica 2017; 51(suppl 1): 4s. https://doi.org/10.1590/S1518-8787.2017051000090
+» https://doi.org/10.1590/S1518-8787.2017051000090
+25.
+Szwarcwald CL, Stopa SR, Damacena GN, Almeida WS, Souza Júnior PRB, Vieira MLFP, et al. Mudanças no padrão de utilização de serviços de saúde no Brasil entre 2013 e 2019. Cien Saude Colet 2021; 26(Supl. 1): 2515-28.https://doi.org/10.1590/1413-81232021266.1.43482020
+» https://doi.org/10.1590/1413-81232021266.1.43482020
+26.
+Levorato CD, Mello LM, Silva AS, Nunes AA. Fatores associados à procura por serviços de saúde numa perspectiva relacional de gênero. Ciênc Saúde Coletiva 2014; 19(4): 1263-74. https://doi.org/10.1590/1413-81232014194.01242013
+» https://doi.org/10.1590/1413-81232014194.01242013
+27.
+Brant LCC, Nascimento BR, Passos VMA, Duncan BB, Bensenõr IJM, Malta DC, et al. Variations and particularities in cardiovascular disease mortality in Brazil and Brazilian states in 1990 and 2015: estimates from the Global Burden of Disease. Rev Bras Epidemiol 2017; 20(Suppl 01): 116-28. https://doi.org/10.1590/1980-5497201700050010”
+» https://doi.org/10.1590/1980-5497201700050010”
+28.
+Oliveira GMM, Brant LCC, Polanczyk CA, Biolo A, Nascimento BR, Malta DC, et al. Cardiovascular statistics – Brazil 2020. Arq Bras Cardiol 2020; 115(3): 308-439. https://doi.org/10.36660/abc.20200812
+» https://doi.org/10.36660/abc.20200812
+29.
+Massa KHC, Duarte YAO, Chiavegatto Filho ADP. Analysis of the prevalence of cardiovascular diseases and associated factors among the elderly, 2000-2010. Cien Saude Colet 2019; 24(1): 105-14. https://doi.org/10.1590/1413-81232018241.02072017
+» https://doi.org/10.1590/1413-81232018241.02072017
+30.
+Paneni F, Cañestro CD, Libby P, Lüscher TF, Camici GG. The aging cardiovascular system: understanding it at the cellular and clinical levels. J Am Coll Cardiol 2017; 69(15): 1952-67. https://doi.org/10.1016/j.jacc.2017.01.064
+» https://doi.org/10.1016/j.jacc.2017.01.064
+31.
+Costantino S, Paneni F, Cosentino F. Ageing, metabolism and cardiovascular disease. J Physiol 2016; 594(8): 2061-73. https://doi.org/10.1113/JP270538
+» https://doi.org/10.1113/JP270538
+32.
+World Health Organization. WHO methods for life expectancy and healthy life expectancy [Internet]. Geneva: World Health Organization; 2014 [cited on May 27, 2021]. Available at:https://www.who.int/healthinfo/statistics/LT_method_1990_2012.pdf
+» https://www.who.int/healthinfo/statistics/LT_method_1990_2012.pdf
+33.
+Louvison MCP, Lebrão ML, Duarte YAO, Santos JLF, Malik AM, Almeida ES. Inequalities in access to health care services and utilization for the elderly in São Paulo, Brazil. Rev Saude Publica 2008; 42(4): 733-40. https://doi.org/10.1590/S0034-89102008000400021
+» https://doi.org/10.1590/S0034-89102008000400021
+34.
+Stopa SR, Malta DC, Monteiro CN, Szwarcwald CL, Goldbaum M, Cesar CLG. Use of and access to health services in Brazil, 2013 National Health Survey. Rev Saude Publica 2017; 51(suppl 1): 3s. https://doi.org/10.1590/S1518-8787.2017051000074
+» https://doi.org/10.1590/S1518-8787.2017051000074
+35.
+Pool LR, Ning H, Lloyd-Jones DM, Allen NB. Trends in racial/ethnic disparities in cardiovascular health among US adults from 1999-2012. J Am Heart Assoc 2017; 6(9): e006027. https://doi.org/10.1161/JAHA.117.006027
+» https://doi.org/10.1161/JAHA.117.006027
+36.
+Lockwood KG, Marsland AL, Matthews KA, Gianaros PJ. Perceived discrimination and cardiovascular health disparities: a multisystem review and health neuroscience perspective. Ann N Y Acad Sci 2018; 1428(1): 170-207. https://doi.org/10.1111/nyas.13939
+» https://doi.org/10.1111/nyas.13939
+37.
+Malta DC, Bernal RTI, Lima MG, Araújo SSC, Silva MMA, Freitas MIF, et al. Noncommunicable diseases and the use of health services: analysis of the National Health Survey in Brazil. Rev Saude Publica 2017; 51(suppl 1): 4s. https://doi.org/10.1590/S1518-8787.2017051000090
+» https://doi.org/10.1590/S1518-8787.2017051000090
+38.
+Viacava F, Oliveira RAD, Carvalho CC, Laguardia J, Bellido JG. SUS: supply, access to and use of health services over the last 30 years. Cien Saude Colet 2018; 23(6): 1751-62. doi: 10.1590/1413-81232018236.06022018
+» 10.1590/1413-81232018236.06022018
+39.
+Pavão ALB, Werneck GL, Campos MR. Self-rated health and the association with social and demographic factors, health behavior, and morbidity: a national health survey. Cad Saude Publica 2013; 29(4): 723-34. PMID: 23568302
+40.
+Sousa JL, Alencar GP, Antunes JLF, Silva ZP. Markers of inequality in self-rated health in Brazilian adults according to sex. Cad Saude Publica 2020; 36(5): e00230318. https://doi.org/10.1590/0102-311X00230318
+» https://doi.org/10.1590/0102-311X00230318
+41.
+Barros MBA, Zanchetta LM, Moura EC, Malta DC. Self-rated health and associated factors, Brazil, 2006. Rev Saude Publica 2009; 43(Suppl 2): 27-37. https://doi.org/10.1590/S0034-89102009000900005
+» https://doi.org/10.1590/S0034-89102009000900005
+42.
+Theme Filha MM, Souza Junior PRB, Damacena GN, Szwarcwald CL. Prevalence of chronic non-communicable diseases and association with self-rated health: National Health Survey, 2013. Rev Bras Epidemiol 2015; 18(Suppl 2): 83-96. https://doi.org/10.1590/1980-5497201500060008
+» https://doi.org/10.1590/1980-5497201500060008
+43.
+Arruda GO, Santos AL, Teston EF, Cecilio HPM, Radovanovic CAT, Marcon SS. Association between self-reported health and sociodemographic characteristics with cardiovascular diseases in adults. Rev Esc Enferm USP 2015; 49(1): 61-8. https://doi.org/10.1590/S0080-623420150000100008
+» https://doi.org/10.1590/S0080-623420150000100008
+44.
+Glovaci D, Fan W, Wong ND. Epidemiology of diabetes mellitus and cardiovascular disease. Curr Cardiol Rep 2019; 21(4): 21. https://doi.org/10.1007/s11886-019-1107-y
+» https://doi.org/10.1007/s11886-019-1107-y
+45.
+Fuchs FD, Whelton PK. High blood pressure and cardiovascular disease. Hypertension 2020; 75(2): 285-92. https://doi.org/10.1161/HYPERTENSIONAHA.119.14240
+» https://doi.org/10.1161/HYPERTENSIONAHA.119.14240
+46.
+Sá ACMGN, Machado ÍE, Bernal RTI, Malta DC. Factors associated with high LDL-cholesterol in the Brazilian adult population: National Health Survey. Cien Saude Colet 2021; 26(2): 541-53. https://doi.org/10.1590/1413-81232021262.37102020
+» https://doi.org/10.1590/1413-81232021262.37102020
+47.
+World Health Organization. Global action plan for the prevention and control of NCDs 2013-2020 [Internet]. Geneva: World Health Organization; 2013. Available at:https://www.who.int/publications/i/item/9789241506236
+» https://www.who.int/publications/i/item/9789241506236
+48.
+Bonotto GM, Mendoza-Sassi RA, Susin LRO. Knowledge of modifiable risk factors for cardiovascular disease among women and the associated factors: a population-based study. Cien Saude Colet 2016; 21(1): 293-302. https://doi.org/10.1590/1413-81232015211.07232015
+» https://doi.org/10.1590/1413-81232015211.07232015
+49.
+Pinto M, Bardach A, Palacios A, Biz A, Alcaraz A, Rodriguez B, et al. Burden of smoking in Brazil and potential benefit of increasing taxes on cigarettes for the economy and for reducing morbidity and mortality. Cad Saude Publica 2019; 35(8): e00129118. https://doi.org/10.1590/0102-311X00129118
+» https://doi.org/10.1590/0102-311X00129118
+Fonte de financiamento: Fundo Nacional de Saúde, Secretaria de Vigilância em Saúde, Ministério da Saúde (TED: 66/2018). CNPQ pela bolsa produtividade da Dra. Malta DC. Dr. Ribeiro recebe auxílios do CNPq (310679/2016-8 e 465518/2014-1) e da FAPEMIG (PPM-00428-17 eRED-00081-16).
+
+Datas de Publicação
+Publicação nesta coleção
+10 Dez 2021
+Data do Fascículo
+2021
+
+Histórico
+Recebido
+31 Maio 2021
+Revisado
+09 Jul 2021
+Aceito
+13 Jul 2021
+Preprint
+15 Set 2021
