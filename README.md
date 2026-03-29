@@ -6,7 +6,7 @@
 
 <br>
 
-# CardioIA - Fase 1 – Batimentos de Dados
+# CardioIA
 
 ## Grupo
 
@@ -21,20 +21,7 @@
 - <a href="#">André Godoi Chiovato</a>
 
 
-## 📜 Descrição
-
-Este repositório corresponde à **Fase 1 – Batimentos de Dados** do projeto **CardioIA**: a base de dados que alimentará os módulos inteligentes da plataforma ao longo das 7 fases do curso. Aqui atuamos como cientistas de dados hospitalares, levantando, organizando e documentando três tipos de dados cardiológicos:
-
-- **Dados numéricos (Parte 1):** dataset de pacientes com variáveis clínicas (idade, sexo, pressão arterial, colesterol, sintomas, frequência cardíaca e diagnóstico), em CSV e XLSX, com links no Google Drive.
-- **Dados textuais (Parte 2):** textos em português sobre doenças cardiovasculares, prevenção e fatores de risco, na pasta `assets/docs/`, para uso em NLP nas fases seguintes.
-- **Dados visuais (Parte 3):** imagens de ecocardiograma (dataset CAMUS), com link no Google Drive e justificativa de uso em visão computacional.
-
-O foco é a **relevância clínica** das informações e a **governança de dados** em IA, preparando a base para triagem, diagnósticos assistidos, monitoramento e soluções inovadoras no ecossistema de cardiologia inteligente do CardioIA.
-
-
 ## 📁 Estrutura de pastas
-
-Estrutura atual do repositório (Fase 1 – Batimentos de Dados):
 
 ```
 cap1-a-busca-de-dados-inteligencia-cardiologica/
@@ -53,11 +40,25 @@ cap1-a-busca-de-dados-inteligencia-cardiologica/
 | Pasta/arquivo | Descrição |
 |--------------|-----------|
 | **README.md** | Guia e explicação geral do projeto (este arquivo). |
-| **datasets/** | Dados numéricos da Parte 1 (dataset de pacientes cardiológicos em CSV). |
+| **datasets/** | Dados numéricos e bases de dados do projeto (CSV, XLSX). |
 | **assets/** | Elementos não estruturados: imagens, logos e arquivos de apoio. |
-| **assets/docs/** | Textos da Parte 2 (NLP): artigos sobre DCV, prevenção e fatores de risco em saúde cardiovascular. |
+| **assets/docs/** | Textos para NLP: artigos sobre DCV, prevenção e fatores de risco em saúde cardiovascular. |
 
-Conforme o andamento das fases do CardioIA, poderão ser criadas pastas como **config**, **document**, **scripts** e **src** para configurações, documentos, scripts auxiliares e código-fonte.
+Conforme o andamento das fases do CardioIA, o código da Fase 2 fica em **notebooks/** (Google Colab); outras pastas como **config**, **document** ou **src** podem surgir nas fases seguintes, se necessário.
+
+---
+
+# FASE 1 — Batimentos de Dados
+
+## 📜 Descrição
+
+Este repositório corresponde à **Fase 1 – Batimentos de Dados** do projeto **CardioIA**: a base de dados que alimentará os módulos inteligentes da plataforma ao longo das 7 fases do curso. Aqui atuamos como cientistas de dados hospitalares, levantando, organizando e documentando três tipos de dados cardiológicos:
+
+- **Dados numéricos (Parte 1):** dataset de pacientes com variáveis clínicas (idade, sexo, pressão arterial, colesterol, sintomas, frequência cardíaca e diagnóstico), em CSV e XLSX, com links no Google Drive.
+- **Dados textuais (Parte 2):** textos em português sobre doenças cardiovasculares, prevenção e fatores de risco, na pasta `assets/docs/`, para uso em NLP nas fases seguintes.
+- **Dados visuais (Parte 3):** imagens de ecocardiograma (dataset CAMUS), com link no Google Drive e justificativa de uso em visão computacional.
+
+O foco é a **relevância clínica** das informações e a **governança de dados** em IA, preparando a base para triagem, diagnósticos assistidos, monitoramento e soluções inovadoras no ecossistema de cardiologia inteligente do CardioIA.
 
 
 ## 📜 Parte 1 – Dados Numéricos (IoT)
@@ -155,6 +156,14 @@ As imagens de ecocardiograma (ultrassom cardíaco em escala de cinza, vista em l
 
 A análise automática de imagens de ecocardiograma permite padronizar medições (reduzindo variabilidade entre observadores), escalar a triagem, auxiliar no diagnóstico precoce de alterações cardíacas e apoiar médicos com sugestões de achados — sem substituir o julgamento clínico. No CardioIA, esse conjunto alimentará o módulo **Coração em Imagens (Fase 4)**, alinhado a uma cardiologia inteligente e acessível.
 
+
+---
+
+# FASE 2 — Estetoscópio Digital
+
+*(em desenvolvimento)*
+
+---
 
 ## 🗃 Histórico de lançamentos
 
