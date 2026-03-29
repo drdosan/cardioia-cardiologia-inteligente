@@ -35,12 +35,10 @@ cap1-a-busca-de-dados-inteligencia-cardiologica/
 │   └── sintomas_pacientes.txt       # Fase 2 — relatos fictícios (uma frase por linha)
 ├── notebooks/
 │   └── fase2_cardioia_estetoscopio_digital.ipynb
-├── assets/
-│   └── docs/
-│       ├── a_promocao_da_saude_e_a_prevencao_integrada_dos_fatores_de_risco_para_doencas_cardiovasculares.txt
-│       └── fatores_associados_as_doencas_cardiovasculares_na_populacao_adulta_brasileira_pesquisa_nacional_de_saude.txt
-└── .cursor/
-    └── rules/                       # Regras do editor (contexto do projeto CardioIA)
+└── assets/
+    └── docs/
+        ├── a_promocao_da_saude_e_a_prevencao_integrada_dos_fatores_de_risco_para_doencas_cardiovasculares.txt
+        └── fatores_associados_as_doencas_cardiovasculares_na_populacao_adulta_brasileira_pesquisa_nacional_de_saude.txt
 ```
 
 | Pasta / arquivo | Descrição |
@@ -50,7 +48,6 @@ cap1-a-busca-de-dados-inteligencia-cardiologica/
 | **notebooks/** | Notebook único da **Fase 2** (Colab ou Jupyter): Parte 1 por regras + Parte 2 com TF-IDF, modelo híbrido e árvore de decisão. |
 | **assets/** | Logos e materiais de apoio ao README. |
 | **assets/docs/** | Textos em português para NLP na Fase 1 (DCV, prevenção, fatores de risco). |
-| **.cursor/rules/** | Convenções e requisitos do projeto para assistentes de código (opcional no clone). |
 
 ---
 
