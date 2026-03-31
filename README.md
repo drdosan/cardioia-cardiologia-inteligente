@@ -170,6 +170,12 @@ Na **Fase 2**, o CardioIA simula um **estetoscópio digital**: apoio à triagem 
 
 O trabalho está concentrado no notebook **`notebooks/fase2_cardioia_estetoscopio_digital.ipynb`**, pensado para rodar no **Google Colab** ou localmente, com a pasta **`datasets/`** acessível (raiz do repositório, pasta pai ou `/content/datasets` no Colab).
 
+## 🎬 Vídeo da entrega
+
+- **YouTube:**
+[https://www.youtube.com/watch?v=S1vGTsvKxD0](https://www.youtube.com/watch?v=S1vGTsvKxD0)
+
+
 ## 📜 Parte 1 — Relatos, mapa de conhecimento e sugestão por regras
 
 - **`sintomas_pacientes.txt`:** relatos fictícios (uma linha por caso).
@@ -190,12 +196,6 @@ Isto **não** é aprendizado de máquina: são **regras fixas** derivadas do map
 ### Dependências (Colab)
 
 Na primeira execução da sessão, o notebook instala explicitamente: `pandas`, `scikit-learn`, `scipy`.
-
-## 🎬 Vídeo da entrega
-
-Conforme o enunciado da disciplina, a entrega inclui um vídeo (até ~4 min) no YouTube como **não listado**. **Inclua o link abaixo após publicar:**
-
-- **YouTube (não listado):** *(cole o link aqui)*
 
 ---
 
