@@ -1,14 +1,14 @@
 /**
  * CardioIA — Fase 3 (protótipo Wokwi / ESP32)
  *
- * Sensores: DHT22 (temperatura + umidade) e botão (BPM simulado: base 60 + 10 × nº de toques).
+ * Sensores: DHT22 (temperatura + umidade) e botões BPM+ / BPM− (base 60 + 10 × toques; − remove um passo).
  * Wi-Fi simulado: booleano que alterna online/offline para demonstrar fila offline.
  * Com "online" simulado: drena a fila — Serial (sempre sem secrets) ou MQTT (com secrets.h).
  *
  * MQTT: copie src/secrets.h.example → src/secrets.h e preencha Wi-Fi + HiveMQ Cloud.
  * TLS: uso de setInsecure() para simplificar o laboratório; em produção fixar CA raiz.
  *
- * Pinos: DHT22 → GPIO15; botão → GPIO4 (INPUT_PULLUP, ativo em LOW).
+ * Pinos: DHT22 → GPIO15; BPM+ → GPIO4; BPM− → GPIO5 (INPUT_PULLUP, ativo em LOW).
  */
 
 #include <Arduino.h>
@@ -30,10 +30,11 @@
 
 // --- Hardware ---
 static const int PIN_DHT = 15;
-static const int PIN_BUTTON = 4;
+static const int PIN_BPM_UP = 4;
+static const int PIN_BPM_DOWN = 5;
 
 // --- Amostragem e “rede” simulada ---
-static const unsigned long SAMPLE_INTERVAL_MS = 5000;
+static const unsigned long SAMPLE_INTERVAL_MS = 1000;
 static const unsigned long WIFI_CYCLE_MS = 60000;
 static const unsigned long WIFI_ON_MS = 30000;
 static const unsigned long BTN_DEBOUNCE_MS = 150;
@@ -67,9 +68,28 @@ static int bpmSimFromTouches() {
   return BPM_SIM_BASE + BPM_PER_TOUCH * static_cast<int>(g_bpmTouchCount);
 }
 
-static int g_btnStable = HIGH;
-static int g_btnLastRead = HIGH;
-static unsigned long g_btnLastDebounce = 0;
+static int g_btnUpStable = HIGH;
+static int g_btnUpLastRead = HIGH;
+static unsigned long g_btnUpLastDebounce = 0;
+static int g_btnDownStable = HIGH;
+static int g_btnDownLastRead = HIGH;
+static unsigned long g_btnDownLastDebounce = 0;
+
+static void pollPullupButton(int pin, int *stable, int *lastRead, unsigned long *lastDebounce,
+                             void (*onLowEdge)()) {
+  const int reading = digitalRead(pin);
+  const uint32_t now = millis();
+  if (reading != *lastRead) {
+    *lastDebounce = now;
+    *lastRead = reading;
+  }
+  if (now - *lastDebounce > 20) {
+    if (reading != *stable) {
+      *stable = reading;
+      if (*stable == LOW) onLowEdge();
+    }
+  }
+}
 
 static bool g_wifiSimConnected = true;
 static unsigned long g_wifiCycleStart = 0;
@@ -111,6 +131,14 @@ static void recordPress() {
   const int next = BPM_SIM_BASE + BPM_PER_TOUCH * (static_cast<int>(g_bpmTouchCount) + 1);
   if (next > BPM_SIM_MAX) return;
   g_bpmTouchCount++;
+}
+
+static void recordPressDown() {
+  static unsigned long s_lastPressMs = 0;
+  const uint32_t now = millis();
+  if (now - s_lastPressMs < BTN_DEBOUNCE_MS) return;
+  s_lastPressMs = now;
+  if (g_bpmTouchCount > 0) g_bpmTouchCount--;
 }
 
 static void updateWifiSim() {
@@ -231,26 +259,18 @@ static void drainQueueTransport() {
 static void drainQueueTransport() { drainQueueToSerial(); }
 #endif
 
-static void readButton() {
-  const int reading = digitalRead(PIN_BUTTON);
-  const uint32_t now = millis();
-  if (reading != g_btnLastRead) {
-    g_btnLastDebounce = now;
-    g_btnLastRead = reading;
-  }
-  if (now - g_btnLastDebounce > 20) {
-    if (reading != g_btnStable) {
-      g_btnStable = reading;
-      if (g_btnStable == LOW) recordPress();
-    }
-  }
+static void readButtons() {
+  pollPullupButton(PIN_BPM_UP, &g_btnUpStable, &g_btnUpLastRead, &g_btnUpLastDebounce, recordPress);
+  pollPullupButton(PIN_BPM_DOWN, &g_btnDownStable, &g_btnDownLastRead, &g_btnDownLastDebounce,
+                   recordPressDown);
 }
 
 void setup() {
   Serial.begin(115200);
   delay(200);
 
-  pinMode(PIN_BUTTON, INPUT_PULLUP);
+  pinMode(PIN_BPM_UP, INPUT_PULLUP);
+  pinMode(PIN_BPM_DOWN, INPUT_PULLUP);
   dhtSensor.setup(PIN_DHT, DHTesp::DHT22);
 
   g_wifiCycleStart = millis();
@@ -268,7 +288,7 @@ void setup() {
 }
 
 void loop() {
-  readButton();
+  readButtons();
   updateWifiSim();
 
 #if CARDIOIA_USE_MQTT

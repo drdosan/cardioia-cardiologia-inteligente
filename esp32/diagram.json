@@ -13,10 +13,17 @@
     },
     {
       "type": "wokwi-pushbutton",
-      "id": "btn1",
+      "id": "btnDown",
+      "top": 28.5,
+      "left": 38.2,
+      "attrs": { "color": "red", "label": "BPM−", "key": "n", "bounce": "0" }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btnUp",
       "top": 28.5,
       "left": 124.2,
-      "attrs": { "color": "green", "label": "BPM", "key": "b", "bounce": "0" }
+      "attrs": { "color": "green", "label": "BPM+", "key": "b", "bounce": "0" }
     }
   ],
   "connections": [
@@ -25,8 +32,10 @@
     ["dht1:VCC", "esp:3V3", "red", []],
     ["dht1:GND", "esp:GND.1", "black", []],
     ["dht1:SDA", "esp:D15", "green", []],
-    ["btn1:1.l", "esp:D4", "gold", []],
-    ["btn1:2.l", "esp:GND.2", "black", []]
+    ["btnDown:1.l", "esp:D5", "orange", []],
+    ["btnDown:2.l", "esp:GND.2", "black", []],
+    ["btnUp:1.l", "esp:D4", "gold", []],
+    ["btnUp:2.l", "esp:GND.2", "black", []]
   ],
   "serialMonitor": {
     "display": "always",

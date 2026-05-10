@@ -284,7 +284,7 @@
         "type": "function",
         "z": "863f6a39994c1926",
         "name": "function 1",
-        "func": "const t = msg.payload.temp_c;\nconst b = msg.payload.bpm_sim;\nconst h = msg.payload.hum_pct;\nmsg.color = \"green\";\nmsg.payload = \"OK — parâmetros dentro dos limites\";\nif (typeof t === \"number\" && t > 38) {\n  msg.color = \"red\";\n  msg.payload = \"ALERTA: temperatura alta (> 38 °C)\";\n} else if (typeof b === \"number\" && b > 100) {\n  msg.color = \"darkorange\";\n  msg.payload = \"ALERTA: BPM sim alto (> 100)\";\n} else if (typeof b === \"number\" && b > 0 && b < 40) {\n  msg.color = \"darkorange\";\n  msg.payload = \"ALERTA: BPM sim baixo (< 40)\";\n} else if (typeof h === \"number\" && h > 80) {\n  msg.color = \"#b8860b\";\n  msg.payload = \"Aviso: umidade alta (> 80 %)\";\n}\nreturn msg;",
+        "func": "const b = msg.payload.bpm_sim;\nmsg.className = \"cardioia-bpm-ok\";\nmsg.payload = \"OK — BPM dentro dos limites\";\nif (typeof b === \"number\" && b > 100 && b <= 150) {\n  msg.className = \"cardioia-bpm-warn\";\n  msg.payload = \"ALERTA: BPM sim alto (> 100)\";\n} else if (typeof b === \"number\" && b > 0 && b < 40) {\n  msg.className = \"cardioia-bpm-warn\";\n  msg.payload = \"ALERTA: BPM sim baixo (< 40)\";\n}\n else if (typeof b === \"number\" && b > 150) {\n  msg.className = \"cardioia-bpm-danger\";\n  msg.payload = \"ALERTA: BPM sim muito alto (> 150)\";\n}\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -348,7 +348,7 @@
         "order": 2,
         "width": 0,
         "height": 0,
-        "format": "<p ng-style=\"{'color': msg.color || 'green', 'font-weight': 'bold', 'font-size': '16px'}\">\n    {{msg.payload}}\n</p>",
+        "format": "<style>\n    .nr-dashboard-template.cardioia-bpm-ok p.cardioia-bpm-alerta {\n        color: #2e7d32 !important;\n        font-weight: 700;\n        font-size: 16px;\n        margin: 0.5em 0;\n    }\n\n    .nr-dashboard-template.cardioia-bpm-warn p.cardioia-bpm-alerta {\n        color: #e65100 !important;\n        font-weight: 700;\n        font-size: 16px;\n        margin: 0.5em 0;\n    }\n\n    .nr-dashboard-template.cardioia-bpm-danger p.cardioia-bpm-alerta {\n        color: #ff0000 !important;\n        font-weight: 700;\n        font-size: 16px;\n        margin: 0.5em 0;\n    }\n</style>\n<p class=\"cardioia-bpm-alerta\">{{msg.payload}}</p>",
         "storeOutMessages": true,
         "fwdInMessages": true,
         "resendOnRefresh": true,
@@ -361,7 +361,7 @@
         ]
     },
     {
-        "id": "e670e82488328224",
+        "id": "d52f487cbf6c913a",
         "type": "global-config",
         "env": [],
         "modules": {
