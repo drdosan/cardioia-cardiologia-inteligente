@@ -227,7 +227,7 @@ Projeto público com o mesmo `diagram.json` e firmware alinhados ao repositório
 
 - **[CardioIA — Wokwi (ESP32)](https://wokwi.com/projects/463603417957292033)**
 
-No simulador, ative o **IoT Gateway** quando precisar de internet (ex.: HiveMQ). Teclas úteis: **b** / **n** (BPM+ / BPM−), **w** (alterna Wi‑Fi simulado). Detalhes de pinos e build em **`esp32/README.md`**.
+No simulador, ative o **IoT Gateway** quando precisar de internet (ex.: HiveMQ). Teclas úteis: **b** / **n** (BPM+ / BPM−), **w** (alterna Wi‑Fi simulado). Detalhes de pinos e build em **[esp32/README.md](esp32/README.md)**.
 
 ## 🧩 O que foi implementado
 
@@ -236,7 +236,7 @@ No simulador, ative o **IoT Gateway** quando precisar de internet (ex.: HiveMQ).
 | **Edge** | `esp32/src/main.cpp`: amostragem periódica, struct `Sample`, fila circular (`MAX_QUEUE`), botões GPIO 4/5 (BPM), GPIO 18 (toggle Wi‑Fi sim), dreno para MQTT e/ou Serial conforme build. |
 | **Nuvem** | Broker **HiveMQ Cloud** (porta **8883**, TLS); tópico no padrão `cardioia/f3/esp32-wokwi-01/telemetry`; payload JSON `cardioia.telemetry.v1`. |
 | **Fog / UI** | Node-RED: `mqtt in` → `json` → funções → `ui_chart` (temp), `ui_gauge` (BPM), `ui_template` com `msg.className` + CSS para cores de alerta. |
-| **Documentação** | relatórios Parte 1 e 2 (`docs/relatorio_fase3_parte1.pdf`, `docs/relatorio_fase3_parte2.pdf`). |
+| **Documentação** | relatórios Parte 1 e 2 [docs/relatorio_fase3_parte1.pdf](docs/relatorio_fase3_parte1.pdf), [docs/relatorio_fase3_parte2.pdf](docs/relatorio_fase3_parte2.pdf). |
 
 ## 🔐 Credenciais e segurança
 
@@ -266,7 +266,7 @@ Capturas em **`assets/fase3/`** (entrega / relatório):
 
 ## 📎 Artefatos extras
 
-- Export de referência do fluxo: `dashboard/dashboard-node-red.json` (revisar broker e credenciais ao importar).
+- Export de referência do fluxo: [dashboard/dashboard-node-red.json](dashboard/dashboard-node-red.json) (revisar broker e credenciais ao importar).
 
 ---
 
