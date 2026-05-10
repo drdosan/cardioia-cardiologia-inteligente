@@ -34,16 +34,16 @@ A biblioteca **DHTesp** é baixada automaticamente (`lib_deps` no `platformio.in
 2. Cole o conteúdo de **`diagram.json`** no diagrama do projeto.
 3. No editor de código, **substitua o sketch padrão** pelo conteúdo completo de **`src/main.cpp`** (o site espera um único arquivo estilo Arduino; o código é o mesmo).
 4. Em **Library Manager**, adicione **DHTesp** (equivalente ao `libraries.txt`).
-5. Simule: teclas **b** / **n** ou botões **BPM+** / **BPM−**; no **DHT22**, use o painel para mudar temperatura/umidade.
+5. Simule: **b** / **n** (BPM), **w** (**Wi‑Fi sim** — alterna rede simulada ON/OFF); no **DHT22**, use o painel para temperatura/umidade.
 6. Salve e copie o link (**Share**) para o README do repositório e evidências.
 
 ## Serial Monitor
 
-Baud **115200**. Com `wifi_sim` alternando, a fila enche offline; na fase “online”, as amostras saem em **uma linha JSON** (`cardioia.telemetry.v1`).
+Baud **115200**. Com **Wi‑Fi sim** em OFF, a fila enche; ao passar para ON, as amostras saem em **uma linha JSON** (`cardioia.telemetry.v1`) (MQTT e/ou Serial conforme o build).
 
 ## Ligações do circuito
 
-No `diagram.json`, o **wokwi-esp32-devkit-v1** usa rótulos **D15** / **D4** / **D5** (não `15` / `4` / `5`) e o UART0 do monitor serial em **TX0** / **RX0** (não `TX` / `RX`). Sem isso o Wokwi ignora as ligações e o Serial fica vazio.
+No `diagram.json`, o **wokwi-esp32-devkit-v1** usa rótulos **D15** / **D4** / **D5** / **D18** e o UART0 do monitor serial em **TX0** / **RX0** (não `TX` / `RX`). Sem isso o Wokwi ignora as ligações e o Serial fica vazio.
 
 | Sinal    | ESP32   |
 |----------|---------|
@@ -52,6 +52,7 @@ No `diagram.json`, o **wokwi-esp32-devkit-v1** usa rótulos **D15** / **D4** / *
 | DHT22 dados | GPIO15 (pino **D15** no diagrama) |
 | BPM+ (pull-up interno) | GPIO4 (**D4**) + GND |
 | BPM− (pull-up interno) | GPIO5 (**D5**) + GND |
+| Wi‑Fi sim — toggle online/offline da “rede” | GPIO18 (**D18**) + GND |
 
 Se algum rótulo **GND** falhar na simulação, religue no editor Wokwi a outro GND do devkit.
 

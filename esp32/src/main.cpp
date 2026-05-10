@@ -2,13 +2,13 @@
  * CardioIA — Fase 3 (protótipo Wokwi / ESP32)
  *
  * Sensores: DHT22 (temperatura + umidade) e botões BPM+ / BPM− (base 60 + 10 × toques; − remove um passo).
- * Wi-Fi simulado: booleano que alterna online/offline para demonstrar fila offline.
+ * Wi-Fi simulado: booleano controlado por botão (GPIO18) — cada toque alterna online/offline.
  * Com "online" simulado: drena a fila — Serial (sempre sem secrets) ou MQTT (com secrets.h).
  *
  * MQTT: copie src/secrets.h.example → src/secrets.h e preencha Wi-Fi + HiveMQ Cloud.
  * TLS: uso de setInsecure() para simplificar o laboratório; em produção fixar CA raiz.
  *
- * Pinos: DHT22 → GPIO15; BPM+ → GPIO4; BPM− → GPIO5 (INPUT_PULLUP, ativo em LOW).
+ * Pinos: DHT22 → GPIO15; BPM+ → GPIO4; BPM− → GPIO5; Wi‑Fi sim → GPIO18 (INPUT_PULLUP, ativo em LOW).
  */
 
 #include <Arduino.h>
@@ -32,11 +32,10 @@
 static const int PIN_DHT = 15;
 static const int PIN_BPM_UP = 4;
 static const int PIN_BPM_DOWN = 5;
+static const int PIN_WIFI_SIM_TOGGLE = 18;
 
 // --- Amostragem e “rede” simulada ---
 static const unsigned long SAMPLE_INTERVAL_MS = 1000;
-static const unsigned long WIFI_CYCLE_MS = 60000;
-static const unsigned long WIFI_ON_MS = 30000;
 static const unsigned long BTN_DEBOUNCE_MS = 150;
 /** BPM simulado: base + (10 × toques válidos); teto evita valores irreais. */
 static const int BPM_SIM_BASE = 60;
@@ -74,6 +73,9 @@ static unsigned long g_btnUpLastDebounce = 0;
 static int g_btnDownStable = HIGH;
 static int g_btnDownLastRead = HIGH;
 static unsigned long g_btnDownLastDebounce = 0;
+static int g_btnWifiStable = HIGH;
+static int g_btnWifiLastRead = HIGH;
+static unsigned long g_btnWifiLastDebounce = 0;
 
 static void pollPullupButton(int pin, int *stable, int *lastRead, unsigned long *lastDebounce,
                              void (*onLowEdge)()) {
@@ -92,7 +94,6 @@ static void pollPullupButton(int pin, int *stable, int *lastRead, unsigned long 
 }
 
 static bool g_wifiSimConnected = true;
-static unsigned long g_wifiCycleStart = 0;
 
 static unsigned long g_lastSampleMs = 0;
 
@@ -141,11 +142,15 @@ static void recordPressDown() {
   if (g_bpmTouchCount > 0) g_bpmTouchCount--;
 }
 
-static void updateWifiSim() {
+/** Cada pressão válida alterna “rede simulada” ON/OFF (debounce extra evita duplo toque). */
+static void toggleWifiSimPressed() {
+  static unsigned long s_lastToggleMs = 0;
   const uint32_t now = millis();
-  if (g_wifiCycleStart == 0) g_wifiCycleStart = now;
-  const uint32_t phase = (now - g_wifiCycleStart) % WIFI_CYCLE_MS;
-  g_wifiSimConnected = phase < WIFI_ON_MS;
+  if (now - s_lastToggleMs < 400) return;
+  s_lastToggleMs = now;
+  g_wifiSimConnected = !g_wifiSimConnected;
+  Serial.print(F("wifi_sim (manual): "));
+  Serial.println(g_wifiSimConnected ? F("ON — drena fila / MQTT") : F("OFF — só enfileira"));
 }
 
 static size_t formatTelemetryJson(const Sample &s, char *buf, size_t cap) {
@@ -263,6 +268,8 @@ static void readButtons() {
   pollPullupButton(PIN_BPM_UP, &g_btnUpStable, &g_btnUpLastRead, &g_btnUpLastDebounce, recordPress);
   pollPullupButton(PIN_BPM_DOWN, &g_btnDownStable, &g_btnDownLastRead, &g_btnDownLastDebounce,
                    recordPressDown);
+  pollPullupButton(PIN_WIFI_SIM_TOGGLE, &g_btnWifiStable, &g_btnWifiLastRead, &g_btnWifiLastDebounce,
+                   toggleWifiSimPressed);
 }
 
 void setup() {
@@ -271,25 +278,23 @@ void setup() {
 
   pinMode(PIN_BPM_UP, INPUT_PULLUP);
   pinMode(PIN_BPM_DOWN, INPUT_PULLUP);
+  pinMode(PIN_WIFI_SIM_TOGGLE, INPUT_PULLUP);
   dhtSensor.setup(PIN_DHT, DHTesp::DHT22);
-
-  g_wifiCycleStart = millis();
 
 #if CARDIOIA_USE_MQTT
   WiFi.mode(WIFI_STA);
 #ifdef CARDIOIA_WOKWI_SIM
-  Serial.println(F("CardioIA Fase 3 — MQTT + build Wokwi (Wokwi-GUEST). Wi-Fi simulado 30s/30s + fila."));
+  Serial.println(F("CardioIA Fase 3 — MQTT + Wokwi-GUEST. Wi-Fi sim: botão GPIO18 (toggle ON/OFF)."));
 #else
-  Serial.println(F("CardioIA Fase 3 — MQTT habilitado (secrets.h). Wi-Fi simulado 30s/30s + fila."));
+  Serial.println(F("CardioIA Fase 3 — MQTT (secrets.h). Wi-Fi sim: botão GPIO18 (toggle ON/OFF)."));
 #endif
 #else
-  Serial.println(F("CardioIA Fase 3 — só Serial (crie src/secrets.h para MQTT + HiveMQ)."));
+  Serial.println(F("CardioIA Fase 3 — só Serial. Wi-Fi sim: botão GPIO18 (toggle ON/OFF)."));
 #endif
 }
 
 void loop() {
   readButtons();
-  updateWifiSim();
 
 #if CARDIOIA_USE_MQTT
   if (g_wifiSimConnected) tryWifiConnect();
