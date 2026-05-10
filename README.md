@@ -219,7 +219,7 @@ Este repositório não substitui equipamento médico nem transmite dados clínic
 ## 🎬 Vídeo da entrega
 
 - **YouTube:**
-[https://www.youtube.com/](https://www.youtube.com/)
+[https://www.youtube.com/watch?v=zQHdjV5dpWU](https://www.youtube.com/watch?v=zQHdjV5dpWU)
 
 ## 🔗 Simulação Wokwi (evidência)
 
