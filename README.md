@@ -52,7 +52,7 @@ cap1-a-busca-de-dados-inteligencia-cardiologica/
 | **datasets/** | Bases em CSV e TXT: Cleveland (Fase 1), mapa de sintomas, relatos e frases de risco (Fase 2). O XLSX do Cleveland, quando usado, segue o link da Parte 1 (Google Drive). |
 | **notebooks/** | Notebook único da **Fase 2** (Colab ou Jupyter): Parte 1 por regras + Parte 2 com TF-IDF, modelo híbrido e árvore de decisão. |
 | **esp32/** | **Fase 3:** firmware ESP32 (`src/main.cpp`), `diagram.json` (Wokwi), `platformio.ini`, `secrets.h.example` — **não** commitar `secrets.h`. |
-| **docs/** | **Fase 3:** `fase3-arquitetura.md`, `fase3-plano-checklist.md`, `fase3-relatorio-parte1.md`, `fase3-relatorio-parte2.md`. |
+| **docs/** | **Fase 3:**  `relatorio_fase3_parte1.pdf`, `relatorio_fase3_parte2.pdf`. |
 | **dashboard/** | **Fase 3:** `dashboard-node-red.json` (fluxo de referência; credenciais devem ser reconfiguradas após import). |
 | **assets/fase3/** | **Fase 3:** imagens de evidência (simulador, MQTT Explorer, Node-RED). |
 | **assets/** | Logos e materiais de apoio ao README. |
