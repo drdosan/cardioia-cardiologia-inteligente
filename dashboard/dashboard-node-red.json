@@ -1,0 +1,371 @@
+[
+    {
+        "id": "863f6a39994c1926",
+        "type": "tab",
+        "label": "Cardio IA",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "23f99d0a91dbd774",
+        "type": "tls-config",
+        "name": "hivemq-tls",
+        "cert": "",
+        "key": "",
+        "ca": "",
+        "certname": "",
+        "keyname": "",
+        "caname": "",
+        "servername": "",
+        "verifyservercert": false,
+        "alpnprotocol": ""
+    },
+    {
+        "id": "e31a95155fd61061",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "68df3b66c0c14995b9556bc5f557d37c.s1.eu.hivemq.cloud",
+        "port": "8883",
+        "tls": "23f99d0a91dbd774",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": true,
+        "protocolVersion": 4,
+        "keepalive": 60,
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "a5601d51fbe85c01",
+        "type": "ui_tab",
+        "name": "CardioIA",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "fdf4c975bd54a091",
+        "type": "ui_base",
+        "theme": {
+            "name": "theme-light",
+            "lightTheme": {
+                "default": "#0094CE",
+                "baseColor": "#0094CE",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": false
+            },
+            "darkTheme": {
+                "default": "#097479",
+                "baseColor": "#097479",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": false
+            },
+            "customTheme": {
+                "name": "Untitled Theme 1",
+                "default": "#4B7930",
+                "baseColor": "#4B7930",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+            },
+            "themeState": {
+                "base-color": {
+                    "default": "#0094CE",
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-titlebar-backgroundColor": {
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-backgroundColor": {
+                    "value": "#fafafa",
+                    "edited": false
+                },
+                "page-sidebar-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-textColor": {
+                    "value": "#1bbfff",
+                    "edited": false
+                },
+                "group-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "widget-textColor": {
+                    "value": "#111111",
+                    "edited": false
+                },
+                "widget-backgroundColor": {
+                    "value": "#0094ce",
+                    "edited": false
+                },
+                "widget-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "base-font": {
+                    "value": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+                }
+            },
+            "angularTheme": {
+                "primary": "indigo",
+                "accents": "blue",
+                "warn": "red",
+                "background": "grey",
+                "palette": "light"
+            }
+        },
+        "site": {
+            "name": "Node-RED Dashboard",
+            "hideToolbar": "false",
+            "allowSwipe": "false",
+            "lockMenu": "false",
+            "allowTempTheme": "true",
+            "dateFormat": "DD/MM/YYYY",
+            "sizes": {
+                "sx": 48,
+                "sy": 48,
+                "gx": 6,
+                "gy": 6,
+                "cx": 6,
+                "cy": 6,
+                "px": 0,
+                "py": 0
+            }
+        }
+    },
+    {
+        "id": "6de5d5d485c7bb8a",
+        "type": "ui_group",
+        "name": "CardioIA",
+        "tab": "a5601d51fbe85c01",
+        "order": 1,
+        "disp": true,
+        "width": 6,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "181a8d8784dd1f5b",
+        "type": "mqtt in",
+        "z": "863f6a39994c1926",
+        "name": "Telemetria CardioIA",
+        "topic": "cardioia/f3/esp32-wokwi-01/telemetry",
+        "qos": "0",
+        "datatype": "auto-detect",
+        "broker": "e31a95155fd61061",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 170,
+        "y": 140,
+        "wires": [
+            [
+                "10dcf6b7d1bf3f80"
+            ]
+        ]
+    },
+    {
+        "id": "10dcf6b7d1bf3f80",
+        "type": "json",
+        "z": "863f6a39994c1926",
+        "name": "",
+        "property": "payload",
+        "action": "obj",
+        "pretty": false,
+        "x": 370,
+        "y": 140,
+        "wires": [
+            [
+                "587048e60596e939",
+                "ac69e0801cdd8771",
+                "c4561f4c95df4b84"
+            ]
+        ]
+    },
+    {
+        "id": "f8106626127eb02a",
+        "type": "ui_chart",
+        "z": "863f6a39994c1926",
+        "name": "",
+        "group": "6de5d5d485c7bb8a",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "label": "Temperatura em Cº",
+        "chartType": "line",
+        "legend": "true",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 790,
+        "y": 140,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "3883d655bc52e531",
+        "type": "ui_gauge",
+        "z": "863f6a39994c1926",
+        "name": "",
+        "group": "6de5d5d485c7bb8a",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Batimentos por Minuto",
+        "label": "%",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "180",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 780,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "587048e60596e939",
+        "type": "function",
+        "z": "863f6a39994c1926",
+        "name": "function 1",
+        "func": "const t = msg.payload.temp_c;\nconst b = msg.payload.bpm_sim;\nconst h = msg.payload.hum_pct;\nmsg.color = \"green\";\nmsg.payload = \"OK — parâmetros dentro dos limites\";\nif (typeof t === \"number\" && t > 38) {\n  msg.color = \"red\";\n  msg.payload = \"ALERTA: temperatura alta (> 38 °C)\";\n} else if (typeof b === \"number\" && b > 100) {\n  msg.color = \"darkorange\";\n  msg.payload = \"ALERTA: BPM sim alto (> 100)\";\n} else if (typeof b === \"number\" && b > 0 && b < 40) {\n  msg.color = \"darkorange\";\n  msg.payload = \"ALERTA: BPM sim baixo (< 40)\";\n} else if (typeof h === \"number\" && h > 80) {\n  msg.color = \"#b8860b\";\n  msg.payload = \"Aviso: umidade alta (> 80 %)\";\n}\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 560,
+        "y": 260,
+        "wires": [
+            [
+                "66e4e637debc2f94"
+            ]
+        ]
+    },
+    {
+        "id": "ac69e0801cdd8771",
+        "type": "function",
+        "z": "863f6a39994c1926",
+        "name": "function 2",
+        "func": "const t = msg.payload.temp_c;\nif (typeof t === \"number\" && !isNaN(t)) {\n  msg.topic = \"Temp °C\";\n  msg.payload = t;\n  return msg;\n}\nreturn null;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 560,
+        "y": 140,
+        "wires": [
+            [
+                "f8106626127eb02a"
+            ]
+        ]
+    },
+    {
+        "id": "c4561f4c95df4b84",
+        "type": "function",
+        "z": "863f6a39994c1926",
+        "name": "function 3",
+        "func": "const b = msg.payload.bpm_sim;\n\nif (typeof b === \"number\" && !isNaN(b)) {\n  msg.payload = b;\n  return msg;\n}\n\nreturn null;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 560,
+        "y": 200,
+        "wires": [
+            [
+                "3883d655bc52e531"
+            ]
+        ]
+    },
+    {
+        "id": "66e4e637debc2f94",
+        "type": "ui_template",
+        "z": "863f6a39994c1926",
+        "group": "6de5d5d485c7bb8a",
+        "name": "",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "format": "<p ng-style=\"{'color': msg.color || 'green', 'font-weight': 'bold', 'font-size': '16px'}\">\n    {{msg.payload}}\n</p>",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 740,
+        "y": 260,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "e670e82488328224",
+        "type": "global-config",
+        "env": [],
+        "modules": {
+            "node-red-dashboard": "3.6.6"
+        }
+    }
+]

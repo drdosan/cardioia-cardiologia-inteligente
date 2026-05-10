@@ -1,0 +1,7 @@
+# Use o ambiente PlatformIO **esp32dev_wokwi** (Build) para MQTT no simulador.
+# O firmware fica em .pio/build/esp32dev_wokwi/
+
+[wokwi]
+version = 1
+firmware = ".pio/build/esp32dev_wokwi/firmware.bin"
+elf = ".pio/build/esp32dev_wokwi/firmware.elf"

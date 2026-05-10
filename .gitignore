@@ -1,0 +1,8 @@
+# PlatformIO
+**/.pio/
+
+# Legado
+esp32/build/
+
+# Credenciais locais (copiar de src/secrets.h.example)
+esp32/src/secrets.h
