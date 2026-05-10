@@ -272,7 +272,7 @@ Capturas em **`assets/fase3/`** (entrega / relatório):
 
 ## 🗃 Histórico de lançamentos
 
-* **0.3.0** — 09/05/2026 — Fase 3: pasta `esp32/`, `docs/` (arquitetura, relatórios, checklist), `dashboard/`, evidências em `assets/fase3/`, link Wokwi e README atualizado.
+* **0.3.0** — 09/05/2026 — Fase 3: pasta `esp32/`, `docs/` (relatórios), `dashboard/`, evidências em `assets/fase3/`, link Wokwi e README atualizado.
 * **0.2.0** — 28/03/2026 — Fase 2: notebook único, bases `frases_risco`, `mapa_conhecimento`, `sintomas_pacientes`; README atualizado.
 * **0.1.0** — 04/03/2026 — Fase 1: dados numéricos, textos em `assets/docs/` e referência a imagens CAMUS.
 
