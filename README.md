@@ -35,7 +35,12 @@ cap1-a-busca-de-dados-inteligencia-cardiologica/
 │   └── sintomas_pacientes.txt       # Fase 2 — relatos fictícios (uma frase por linha)
 ├── notebooks/
 │   └── fase2_cardioia_estetoscopio_digital.ipynb
+├── esp32/                           # Fase 3 — firmware Wokwi / PlatformIO, diagram.json, MQTT
+├── docs/                            # Fase 3 — relatórios Parte 1 e 2
+├── dashboard/                       # Fase 3 — export de referência Node-RED (JSON)
 └── assets/
+    ├── logo-fiap.png
+    ├── fase3/                       # Evidências visuais da Fase 3 (prints)
     └── docs/
         ├── a_promocao_da_saude_e_a_prevencao_integrada_dos_fatores_de_risco_para_doencas_cardiovasculares.txt
         └── fatores_associados_as_doencas_cardiovasculares_na_populacao_adulta_brasileira_pesquisa_nacional_de_saude.txt
@@ -43,9 +48,13 @@ cap1-a-busca-de-dados-inteligencia-cardiologica/
 
 | Pasta / arquivo | Descrição |
 |-----------------|-----------|
-| **README.md** | Guia geral do repositório, Fases 1 e 2 e referências. |
+| **README.md** | Guia geral do repositório e das fases. |
 | **datasets/** | Bases em CSV e TXT: Cleveland (Fase 1), mapa de sintomas, relatos e frases de risco (Fase 2). O XLSX do Cleveland, quando usado, segue o link da Parte 1 (Google Drive). |
 | **notebooks/** | Notebook único da **Fase 2** (Colab ou Jupyter): Parte 1 por regras + Parte 2 com TF-IDF, modelo híbrido e árvore de decisão. |
+| **esp32/** | **Fase 3:** firmware ESP32 (`src/main.cpp`), `diagram.json` (Wokwi), `platformio.ini`, `secrets.h.example` — **não** commitar `secrets.h`. |
+| **docs/** | **Fase 3:** `fase3-arquitetura.md`, `fase3-plano-checklist.md`, `fase3-relatorio-parte1.md`, `fase3-relatorio-parte2.md`. |
+| **dashboard/** | **Fase 3:** `dashboard-node-red.json` (fluxo de referência; credenciais devem ser reconfiguradas após import). |
+| **assets/fase3/** | **Fase 3:** imagens de evidência (simulador, MQTT Explorer, Node-RED). |
 | **assets/** | Logos e materiais de apoio ao README. |
 | **assets/docs/** | Textos em português para NLP na Fase 1 (DCV, prevenção, fatores de risco). |
 
@@ -199,8 +208,71 @@ Na primeira execução da sessão, o notebook instala explicitamente: `pandas`, 
 
 ---
 
+# FASE 3 — IoT, Edge, MQTT e Node-RED
+
+## 📜 Descrição
+
+Na **Fase 3**, o CardioIA evolui para um **protótipo IoT educacional**: leitura de **DHT22** (temperatura e umidade) e **BPM simulado** com botões no **ESP32** (Wokwi ou hardware), **fila offline** em RAM com capacidade limitada, **Wi‑Fi simulado** controlado por botão no diagrama (toggle manual online/offline), publicação **MQTT** com **TLS** para **HiveMQ Cloud** e **dashboard Node-RED** (gráfico de temperatura, gauge de BPM e alerta textual por limiar de BPM).
+
+Este repositório não substitui equipamento médico nem transmite dados clínicos reais; os valores são **fictícios** para laboratório de IoT e governança de dados.
+
+## 🎬 Vídeo da entrega
+
+- **YouTube:**
+[https://www.youtube.com/](https://www.youtube.com/)
+
+## 🔗 Simulação Wokwi (evidência)
+
+Projeto público com o mesmo `diagram.json` e firmware alinhados ao repositório:
+
+- **[CardioIA — Wokwi (ESP32)](https://wokwi.com/projects/463603417957292033)**
+
+No simulador, ative o **IoT Gateway** quando precisar de internet (ex.: HiveMQ). Teclas úteis: **b** / **n** (BPM+ / BPM−), **w** (alterna Wi‑Fi simulado). Detalhes de pinos e build em **`esp32/README.md`**.
+
+## 🧩 O que foi implementado
+
+| Camada | Conteúdo |
+|--------|----------|
+| **Edge** | `esp32/src/main.cpp`: amostragem periódica, struct `Sample`, fila circular (`MAX_QUEUE`), botões GPIO 4/5 (BPM), GPIO 18 (toggle Wi‑Fi sim), dreno para MQTT e/ou Serial conforme build. |
+| **Nuvem** | Broker **HiveMQ Cloud** (porta **8883**, TLS); tópico no padrão `cardioia/f3/esp32-wokwi-01/telemetry`; payload JSON `cardioia.telemetry.v1`. |
+| **Fog / UI** | Node-RED: `mqtt in` → `json` → funções → `ui_chart` (temp), `ui_gauge` (BPM), `ui_template` com `msg.className` + CSS para cores de alerta. |
+| **Documentação** | relatórios Parte 1 e 2 (`docs/relatorio_fase3_parte1.pdf`, `docs/relatorio_fase3_parte2.pdf`). |
+
+## 🔐 Credenciais e segurança
+
+- Copie `esp32/src/secrets.h.example` para **`esp32/src/secrets.h`** e preencha Wi‑Fi e MQTT localmente. O arquivo **`secrets.h` está no `.gitignore`** e não deve ir para o GitHub.
+- No laboratório o firmware pode usar `setInsecure()` no TLS; em produção use verificação de certificado.
+- **LGPD / ética:** dados do exercício são simulados; em IoT de saúde real seriam necessários consentimento, minimização e controles de acesso ao broker. Não publique senhas em vídeos ou issues.
+
+## 🖼 Evidências (imagens)
+
+Capturas em **`assets/fase3/`** (entrega / relatório):
+
+**Simulador ESP32 no Wokwi**
+
+![Simulador Wokwi — ESP32, DHT22, botões BPM e Wi‑Fi sim](assets/fase3/esp32.png)
+
+**MQTT Explorer conectado ao broker (telemetria chegando)**
+
+![MQTT Explorer — assinatura ao tópico de telemetria](assets/fase3/mqtt-explorer-connected.png)
+
+**Fluxo Node-RED (editor)**
+
+![Fluxo Node-RED — MQTT, JSON, funções e dashboard](assets/fase3/fluxo-node-red.png)
+
+**Dashboard Node-RED (CardioIA)**
+
+![Dashboard Node-RED — gráfico de temperatura, gauge BPM e alerta](assets/fase3/dashboard-node-red.png)
+
+## 📎 Artefatos extras
+
+- Export de referência do fluxo: `dashboard/dashboard-node-red.json` (revisar broker e credenciais ao importar).
+
+---
+
 ## 🗃 Histórico de lançamentos
 
+* **0.3.0** — 09/05/2026 — Fase 3: pasta `esp32/`, `docs/` (arquitetura, relatórios, checklist), `dashboard/`, evidências em `assets/fase3/`, link Wokwi e README atualizado.
 * **0.2.0** — 28/03/2026 — Fase 2: notebook único, bases `frases_risco`, `mapa_conhecimento`, `sintomas_pacientes`; README atualizado.
 * **0.1.0** — 04/03/2026 — Fase 1: dados numéricos, textos em `assets/docs/` e referência a imagens CAMUS.
 
