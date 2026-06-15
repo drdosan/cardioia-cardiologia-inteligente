@@ -290,8 +290,6 @@ Capturas em **`assets/fase3/`** (entrega / relatório):
 
 # FASE 4 — Assistente Cardiológico Virtual (Visão Computacional)
 
-> **Status:** concluída · **Checklist:** [docs/fase4-plano-checklist.md](docs/fase4-plano-checklist.md)
-
 ## 📜 Descrição
 
 Na **Fase 4**, o CardioIA avança para **Visão Computacional** aplicada a exames médicos simulados: pipeline de **pré-processamento** de imagens, treino e avaliação de **CNNs** (modelo simples do zero + **transfer learning** com VGG16 ou ResNet) e **protótipo acessível** para apresentar classificações de forma interpretável.
