@@ -323,7 +323,7 @@ Reutilizamos o **CAMUS** documentado na [Fase 1 — Parte 3](#parte-3--dados-vis
 | Item | Artefato | Status |
 |------|----------|--------|
 | Notebook de pré-processamento | `notebooks/fase4_parte1_preprocessamento.ipynb` | ✅ executado no Colab |
-| Relatório Parte 1 | [`docs/relatorio_fase4_parte1.md`](docs/relatorio_fase4_parte1.md) | ✅ |
+| Relatório Parte 1 | [`docs/relatorio_fase4_parte1.pdf`](docs/relatorio_fase4_parte1.pdf) | ✅ |
 
 **Pipeline previsto:**
 
@@ -342,9 +342,9 @@ Reutilizamos o **CAMUS** documentado na [Fase 1 — Parte 3](#parte-3--dados-vis
 | Notebook CNN + transfer learning | `notebooks/fase4_parte2_cnn_classificacao.ipynb` | ✅ executado no Colab (GPU) |
 | Prints de métricas | [`assets/fase4/`](assets/fase4/) | ✅ |
 | Protótipo (notebook upload + parecer) | notebook Parte 2 | ✅ |
-| Relatório Parte 2 | [`docs/relatorio_fase4_parte2.md`](docs/relatorio_fase4_parte2.md) | ✅ |
+| Relatório Parte 2 | [`docs/relatorio_fase4_parte2.pdf`](docs/relatorio_fase4_parte2.pdf) | ✅ |
 
-**Resultados no teste (135 imagens):** CNN simples **71,9%** acurácia · VGG16 **51,1%** — detalhes em [`assets/fase4/comparacao_metricas.csv`](assets/fase4/comparacao_metricas.csv) e [`relatorio_fase4_parte2.md`](docs/relatorio_fase4_parte2.md).
+**Resultados no teste (135 imagens):** CNN simples **71,9%** acurácia · VGG16 **51,1%** — detalhes em [`assets/fase4/comparacao_metricas.csv`](assets/fase4/comparacao_metricas.csv) e [`relatorio_fase4_parte2.pdf`](docs/relatorio_fase4_parte2.pdf).
 
 **Abordagens implementadas:**
 
@@ -405,8 +405,7 @@ Fase 4/
 ├── docs/relatorio_fase4_parte1.md
 ├── docs/relatorio_fase4_parte2.md
 ├── docs/fase4-plano-checklist.md
-├── assets/fase4/                    # evidências: matrizes, curvas, comparacao_metricas.csv
-└── app/                             # opcional — Flask
+└── assets/fase4/                    # evidências: matrizes, curvas, comparacao_metricas.csv
 ```
 
 ---
