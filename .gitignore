@@ -6,3 +6,8 @@ esp32/build/
 
 # Credenciais locais (copiar de src/secrets.h.example)
 esp32/src/secrets.h
+
+# Fase 4 — imagens CAMUS (dataset grande; usar Drive/Kaggle)
+datasets/camus/
+*.h5
+*.keras

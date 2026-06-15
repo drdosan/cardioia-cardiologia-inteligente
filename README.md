@@ -20,6 +20,18 @@
 ### Coordenador(a)
 - <a href="#">André Godoi Chiovato</a>
 
+## 🗺 Mapa das fases (navegação)
+
+| Fase | Título | Status | Seção no README |
+|------|--------|--------|-----------------|
+| 1 | Batimentos de Dados | Concluída | [FASE 1](#fase-1--batimentos-de-dados) |
+| 2 | Estetoscópio Digital | Concluída | [FASE 2](#fase-2--estetoscópio-digital) |
+| 3 | IoT, Edge, MQTT e Node-RED | Concluída | [FASE 3](#fase-3--iot-edge-mqtt-e-node-red) |
+| 4 | Assistente Cardiológico Virtual (Visão) | Concluída | [FASE 4](#fase-4--assistente-cardiológico-virtual-visão-computacional) |
+
+Checklist detalhado da Fase 4: [docs/fase4-plano-checklist.md](docs/fase4-plano-checklist.md).
+
+---
 
 ## 📁 Estrutura de pastas
 
@@ -34,13 +46,17 @@ cap1-a-busca-de-dados-inteligencia-cardiologica/
 │   ├── mapa_conhecimento.csv        # Fase 2 — pares de sintomas → doença (regras)
 │   └── sintomas_pacientes.txt       # Fase 2 — relatos fictícios (uma frase por linha)
 ├── notebooks/
-│   └── fase2_cardioia_estetoscopio_digital.ipynb
+│   ├── fase2_cardioia_estetoscopio_digital.ipynb   # Fase 2
+│   ├── fase4_parte1_preprocessamento.ipynb         # Fase 4 — pré-processamento (Colab)
+│   └── fase4_parte2_cnn_classificacao.ipynb        # Fase 4 — CNN + transfer learning (Colab)
 ├── esp32/                           # Fase 3 — firmware Wokwi / PlatformIO, diagram.json, MQTT
-├── docs/                            # Fase 3 — relatórios Parte 1 e 2
+├── app/                             # Fase 4 — protótipo Flask (opcional)
+├── docs/                            # Relatórios por fase (PDF/MD)
 ├── dashboard/                       # Fase 3 — export de referência Node-RED (JSON)
 └── assets/
     ├── logo-fiap.png
-    ├── fase3/                       # Evidências visuais da Fase 3 (prints)
+    ├── fase3/                       # Fase 3 — evidências (prints Wokwi, MQTT, Node-RED)
+    ├── fase4/                       # Fase 4 — prints de métricas (matriz de confusão, curvas)
     └── docs/
         ├── a_promocao_da_saude_e_a_prevencao_integrada_dos_fatores_de_risco_para_doencas_cardiovasculares.txt
         └── fatores_associados_as_doencas_cardiovasculares_na_populacao_adulta_brasileira_pesquisa_nacional_de_saude.txt
@@ -50,11 +66,13 @@ cap1-a-busca-de-dados-inteligencia-cardiologica/
 |-----------------|-----------|
 | **README.md** | Guia geral do repositório e das fases. |
 | **datasets/** | Bases em CSV e TXT: Cleveland (Fase 1), mapa de sintomas, relatos e frases de risco (Fase 2). O XLSX do Cleveland, quando usado, segue o link da Parte 1 (Google Drive). |
-| **notebooks/** | Notebook único da **Fase 2** (Colab ou Jupyter): Parte 1 por regras + Parte 2 com TF-IDF, modelo híbrido e árvore de decisão. |
+| **notebooks/** | **Fase 2:** estetoscópio digital (regras + TF-IDF). **Fase 4:** pré-processamento e CNN/transfer learning (Colab). |
 | **esp32/** | **Fase 3:** firmware ESP32 (`src/main.cpp`), `diagram.json` (Wokwi), `platformio.ini`, `secrets.h.example` — **não** commitar `secrets.h`. |
-| **docs/** | **Fase 3:**  `relatorio_fase3_parte1.pdf`, `relatorio_fase3_parte2.pdf`. |
+| **app/** | **Fase 4:** protótipo web Flask (`app.py`, `templates/`) — opcional se o grupo usar notebook interativo. |
+| **docs/** | Relatórios por fase: Fase 3 (`relatorio_fase3_parte*.pdf`); Fase 4 [`relatorio_fase4_parte1.md`](docs/relatorio_fase4_parte1.md), [`relatorio_fase4_parte2.md`](docs/relatorio_fase4_parte2.md); checklist [fase4-plano-checklist.md](docs/fase4-plano-checklist.md). |
 | **dashboard/** | **Fase 3:** `dashboard-node-red.json` (fluxo de referência; credenciais devem ser reconfiguradas após import). |
 | **assets/fase3/** | **Fase 3:** imagens de evidência (simulador, MQTT Explorer, Node-RED). |
+| **assets/fase4/** | **Fase 4:** prints de métricas (matriz de confusão, curvas de treino, comparação CNN vs transfer learning). |
 | **assets/** | Logos e materiais de apoio ao README. |
 | **assets/docs/** | Textos em português para NLP na Fase 1 (DCV, prevenção, fatores de risco). |
 
@@ -270,8 +288,132 @@ Capturas em **`assets/fase3/`** (entrega / relatório):
 
 ---
 
+# FASE 4 — Assistente Cardiológico Virtual (Visão Computacional)
+
+> **Status:** concluída · **Checklist:** [docs/fase4-plano-checklist.md](docs/fase4-plano-checklist.md)
+
+## 📜 Descrição
+
+Na **Fase 4**, o CardioIA avança para **Visão Computacional** aplicada a exames médicos simulados: pipeline de **pré-processamento** de imagens, treino e avaliação de **CNNs** (modelo simples do zero + **transfer learning** com VGG16 ou ResNet) e **protótipo acessível** para apresentar classificações de forma interpretável.
+
+O protótipo é **educacional** — não substitui laudo médico nem deve ser usado fora do contexto acadêmico.
+
+### Conexão com fases anteriores
+
+| Fase | O que alimenta a Fase 4 |
+|------|-------------------------|
+| **Fase 1 (Parte 3)** | Dataset **CAMUS** (ecocardiogramas) — link no Drive; reutilizado como base de imagens |
+| **Fase 2** | Métricas de classificação (acurácia, matriz de confusão, precisão, recall, F1) — mesma linguagem de avaliação |
+| **Fase 3** | Monitoramento contínuo (IoT) complementa o ecossistema; a Fase 4 foca em **análise de imagem estática** |
+
+## 🗂 Dataset de imagens
+
+Reutilizamos o **CAMUS** documentado na [Fase 1 — Parte 3](#parte-3--dados-visuais-visão-computacional). No Drive: **`dataset_cardio/frames/`** (900 imagens) + **`dataset_cardio/masks/`** (900 máscaras).
+
+| Recurso | Link |
+|---------|------|
+| **Google Drive (Fase 1)** | [Imagens CAMUS](https://drive.google.com/drive/folders/1d7L5sZIY1Y5VbKkFY0_aMOXQfmE7zFQj?usp=sharing) |
+| **Kaggle** | [CAMUS — Echocardiography Image Dataset](https://www.kaggle.com/datasets/parsakh/camus-echocardiography-image-dataset) |
+| **Alternativa (enunciado FIAP)** | [NIH Chest X-rays](https://www.kaggle.com/datasets/nih-chest-xrays/data) |
+
+## 📜 Parte 1 — Pré-processamento e organização
+
+**Entregáveis:** notebook Colab + relatório curto (1–2 páginas).
+
+| Item | Artefato | Status |
+|------|----------|--------|
+| Notebook de pré-processamento | `notebooks/fase4_parte1_preprocessamento.ipynb` | ✅ executado no Colab |
+| Relatório Parte 1 | [`docs/relatorio_fase4_parte1.md`](docs/relatorio_fase4_parte1.md) | ✅ |
+
+**Pipeline previsto:**
+
+1. Carga do dataset (Drive/Kaggle no Colab).
+2. Exploração: contagem por classe, amostras visuais, desbalanceamento.
+3. Pré-processamento: redimensionamento, normalização, conversão de formato.
+4. Splits **treino / validação / teste** (estratificados, seed fixa).
+5. Documentação das escolhas no relatório.
+
+## 📜 Parte 2 — CNN, transfer learning e protótipo
+
+**Entregáveis:** notebook com modelos e métricas, prints, protótipo de interface.
+
+| Item | Artefato | Status |
+|------|----------|--------|
+| Notebook CNN + transfer learning | `notebooks/fase4_parte2_cnn_classificacao.ipynb` | ✅ executado no Colab (GPU) |
+| Prints de métricas | [`assets/fase4/`](assets/fase4/) | ✅ |
+| Protótipo (notebook upload + parecer) | notebook Parte 2 | ✅ |
+| Relatório Parte 2 | [`docs/relatorio_fase4_parte2.md`](docs/relatorio_fase4_parte2.md) | ✅ |
+
+**Resultados no teste (135 imagens):** CNN simples **71,9%** acurácia · VGG16 **51,1%** — detalhes em [`assets/fase4/comparacao_metricas.csv`](assets/fase4/comparacao_metricas.csv) e [`relatorio_fase4_parte2.md`](docs/relatorio_fase4_parte2.md).
+
+**Abordagens implementadas:**
+
+- **CNN simples** treinada do zero (baseline).
+- **Transfer learning** com VGG16 ou ResNet50 (Keras `applications`).
+
+**Métricas obrigatórias (ambos os modelos):** acurácia, matriz de confusão, precisão, recall, F1-score.
+
+## ▶ Como executar (Colab)
+
+**Parte 1:** `notebooks/fase4_parte1_preprocessamento.ipynb` — gera `camus_splits.csv` no Drive.
+
+**Parte 2:** `notebooks/fase4_parte2_cnn_classificacao.ipynb` — requer Parte 1 + **GPU** recomendada.
+
+1. Abra o notebook no [Google Colab](https://colab.research.google.com/).
+2. **Runtime → Change runtime type → GPU** (Parte 2).
+3. Monte o Google Drive (`dataset_cardio/` com `frames/`, `masks/` e CSVs da Parte 1).
+4. Execute as células **de cima para baixo**.
+5. Evidências também em [`assets/fase4/`](assets/fase4/) (matrizes, curvas, CSV).
+
+## 🖼 Evidências (imagens)
+
+Capturas em **`assets/fase4/`**:
+
+**Matriz de confusão — CNN simples**
+
+![Matriz de confusão CNN simples](assets/fase4/matriz_confusao_cnn_simples.png)
+
+**Matriz de confusão — VGG16 (transfer learning)**
+
+![Matriz de confusão VGG16](assets/fase4/matriz_confusao_vgg16.png)
+
+**Curvas de treino — CNN simples**
+
+![Curvas CNN simples](assets/fase4/curvas_cnn_simples.png)
+
+**Curvas de treino — VGG16**
+
+![Curvas VGG16](assets/fase4/curvas_vgg16.png)
+
+## 🖥 Protótipo de apresentação
+
+Implementado como **notebook interativo** (Parte 2): upload de ecocardiograma → classe legível + probabilidades + parecer simulado + aviso médico.
+
+## 🔐 Governança, ética e limitações
+
+- Imagens de dataset **público e anonimizado** (CAMUS); sem identificadores de pacientes reais.
+- Modelos podem apresentar **viés** (distribuição do dataset, classes desbalanceadas) — documentar no relatório.
+- **LGPD:** em produção real seriam necessários consentimento, finalidade clara e controles de acesso; aqui tratamos apenas simulação acadêmica.
+- **Não** commitar modelos `.h5`/`.keras` muito grandes; preferir link Drive ou instrução de retreino no notebook.
+
+## 📎 Artefatos da Fase 4 (referência rápida)
+
+```
+Fase 4/
+├── notebooks/fase4_parte1_preprocessamento.ipynb
+├── notebooks/fase4_parte2_cnn_classificacao.ipynb
+├── docs/relatorio_fase4_parte1.md
+├── docs/relatorio_fase4_parte2.md
+├── docs/fase4-plano-checklist.md
+├── assets/fase4/                    # evidências: matrizes, curvas, comparacao_metricas.csv
+└── app/                             # opcional — Flask
+```
+
+---
+
 ## 🗃 Histórico de lançamentos
 
+* **0.4.0** — 14/06/2026 — Fase 4: notebooks Parte 1 e 2, relatórios, protótipo Colab, evidências em `assets/fase4/`, CAMUS no Drive (`dataset_cardio/`).
 * **0.3.0** — 09/05/2026 — Fase 3: pasta `esp32/`, `docs/` (relatórios), `dashboard/`, evidências em `assets/fase3/`, link Wokwi e README atualizado.
 * **0.2.0** — 28/03/2026 — Fase 2: notebook único, bases `frases_risco`, `mapa_conhecimento`, `sintomas_pacientes`; README atualizado.
 * **0.1.0** — 04/03/2026 — Fase 1: dados numéricos, textos em `assets/docs/` e referência a imagens CAMUS.
