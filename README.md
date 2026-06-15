@@ -296,6 +296,11 @@ Na **Fase 4**, o CardioIA avança para **Visão Computacional** aplicada a exame
 
 O protótipo é **educacional** — não substitui laudo médico nem deve ser usado fora do contexto acadêmico.
 
+## 🎬 Vídeo da entrega
+
+- **YouTube:**
+[https://www.youtube.com/watch?v=zt5UOjM8v2g](https://www.youtube.com/watch?v=zt5UOjM8v2g)
+
 ### Conexão com fases anteriores
 
 | Fase | O que alimenta a Fase 4 |
