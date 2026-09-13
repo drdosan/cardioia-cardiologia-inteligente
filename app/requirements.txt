@@ -1,0 +1,13 @@
+# CardioIA — Fase 5 (backend Flask + watsonx Assistant)
+# Testado com Flask 2.3.3 / scikit-learn 1.3.2 / pandas 2.1.4 e versões mais recentes.
+
+Flask>=2.3
+python-dotenv>=1.0
+
+# Integração com o IBM watsonx Assistant (API v2).
+# Sem este pacote a aplicação continua rodando no motor local.
+ibm-watson>=7.0
+
+# Reaproveitamento da Fase 2: TF-IDF, regressão logística e leitura dos CSVs.
+scikit-learn>=1.3
+pandas>=2.0

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CardioIA — Assistente Cardiológico</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='estilo.css') }}">
+</head>
+<body>
+  <div class="aplicacao">
+    <header class="cabecalho">
+      <div class="marca">
+        <span class="pulso" aria-hidden="true">♥</span>
+        <div>
+          <h1>CardioIA</h1>
+          <p>Assistente Cardiológico Conversacional — FIAP · Fase 5</p>
+        </div>
+      </div>
+      <div class="estado">
+        <span id="indicador-motor" class="etiqueta etiqueta-neutra">conectando…</span>
+      </div>
+    </header>
+
+    <main class="conteudo">
+      <section class="painel-conversa" aria-label="Conversa com o assistente">
+        <div id="conversa" class="conversa" role="log" aria-live="polite"></div>
+
+        <div id="sugestoes" class="sugestoes">
+          <button type="button" class="sugestao">Sinto falta de ar quando subo escadas</button>
+          <button type="button" class="sugestao">Minha pressão está alta, e agora?</button>
+          <button type="button" class="sugestao">Para que serve o ecocardiograma?</button>
+          <button type="button" class="sugestao">Quero marcar uma consulta</button>
+        </div>
+
+        <form id="formulario" class="entrada" autocomplete="off">
+          <label class="oculto" for="campo-mensagem">Mensagem</label>
+          <input id="campo-mensagem" type="text" placeholder="Descreva o que você está sentindo…"
+                 maxlength="1000" required>
+          <button id="botao-enviar" type="submit">Enviar</button>
+        </form>
+      </section>
+
+      <aside class="painel-analise" aria-label="Análise da mensagem">
+        <h2>Leitura do assistente</h2>
+
+        <div class="bloco">
+          <h3>Intenção reconhecida</h3>
+          <p id="analise-intencao" class="valor">—</p>
+        </div>
+
+        <div class="bloco">
+          <h3>Entidades clínicas</h3>
+          <ul id="analise-entidades" class="lista-etiquetas"><li class="vazio">—</li></ul>
+        </div>
+
+        <div class="bloco">
+          <h3>Hipóteses do mapa de conhecimento</h3>
+          <ul id="analise-hipoteses" class="lista"><li class="vazio">—</li></ul>
+          <p class="rodape-bloco">Regras da Fase 2 · <code>mapa_conhecimento.csv</code></p>
+        </div>
+
+        <div class="bloco">
+          <h3>Indício de risco (modelo da Fase 2)</h3>
+          <p id="analise-risco" class="valor">—</p>
+          <p class="rodape-bloco">TF-IDF + regressão logística · apoio à triagem, não é diagnóstico</p>
+        </div>
+      </aside>
+    </main>
+
+    <footer class="rodape">
+      <p>{{ aviso }}</p>
+    </footer>
+  </div>
+
+  <script src="{{ url_for('static', filename='chat.js') }}"></script>
+</body>
+</html>

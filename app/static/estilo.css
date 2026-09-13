@@ -1,0 +1,323 @@
+/* CardioIA — Fase 5: interface do assistente conversacional */
+
+:root {
+  --fundo: #0f1720;
+  --superficie: #16212d;
+  --superficie-clara: #1e2c3a;
+  --borda: #27384a;
+  --texto: #e7eef5;
+  --texto-suave: #93a7b8;
+  --primaria: #e23b52;
+  --primaria-escura: #b82c40;
+  --paciente: #24405c;
+  --alerta: #f0b429;
+  --sucesso: #2fa36b;
+  --raio: 12px;
+  --fonte: "Segoe UI", system-ui, -apple-system, sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--fundo);
+  color: var(--texto);
+  font-family: var(--fonte);
+  line-height: 1.55;
+}
+
+.oculto {
+  position: absolute;
+  width: 1px; height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+}
+
+.aplicacao {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 20px 16px 12px;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* --- cabeçalho --- */
+
+.cabecalho {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--borda);
+}
+
+.marca { display: flex; align-items: center; gap: 14px; }
+
+.marca h1 { margin: 0; font-size: 1.5rem; letter-spacing: .5px; }
+
+.marca p { margin: 0; color: var(--texto-suave); font-size: .85rem; }
+
+.pulso {
+  font-size: 2rem;
+  color: var(--primaria);
+  animation: bater 1.6s ease-in-out infinite;
+}
+
+@keyframes bater {
+  0%, 100% { transform: scale(1); }
+  20% { transform: scale(1.18); }
+  40% { transform: scale(1); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pulso { animation: none; }
+}
+
+.etiqueta {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 999px;
+  font-size: .75rem;
+  font-weight: 600;
+  letter-spacing: .3px;
+}
+
+.etiqueta-neutra { background: var(--superficie-clara); color: var(--texto-suave); }
+.etiqueta-watson { background: rgba(47, 163, 107, .18); color: #6bd6a3; }
+.etiqueta-local { background: rgba(240, 180, 41, .18); color: var(--alerta); }
+
+/* --- layout --- */
+
+.conteudo {
+  flex: 1;
+  display: grid;
+  grid-template-columns: minmax(0, 1.7fr) minmax(0, 1fr);
+  gap: 18px;
+  padding: 18px 0;
+  min-height: 0;
+}
+
+.painel-conversa {
+  display: flex;
+  flex-direction: column;
+  background: var(--superficie);
+  border: 1px solid var(--borda);
+  border-radius: var(--raio);
+  overflow: hidden;
+}
+
+/* --- conversa --- */
+
+.conversa {
+  flex: 1;
+  padding: 18px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-height: 380px;
+  max-height: 60vh;
+}
+
+.balao {
+  max-width: 78%;
+  padding: 11px 15px;
+  border-radius: var(--raio);
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  animation: surgir .18s ease-out;
+}
+
+@keyframes surgir {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: none; }
+}
+
+.balao-assistente {
+  align-self: flex-start;
+  background: var(--superficie-clara);
+  border-top-left-radius: 4px;
+}
+
+.balao-paciente {
+  align-self: flex-end;
+  background: var(--paciente);
+  border-top-right-radius: 4px;
+}
+
+.balao-emergencia {
+  border-left: 4px solid var(--primaria);
+  background: rgba(226, 59, 82, .14);
+}
+
+.balao-erro {
+  align-self: center;
+  background: rgba(240, 180, 41, .14);
+  color: var(--alerta);
+  font-size: .85rem;
+}
+
+.digitando { display: inline-flex; gap: 4px; padding: 4px 0; }
+
+.digitando span {
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: var(--texto-suave);
+  animation: pontinho 1.2s infinite;
+}
+
+.digitando span:nth-child(2) { animation-delay: .2s; }
+.digitando span:nth-child(3) { animation-delay: .4s; }
+
+@keyframes pontinho {
+  0%, 60%, 100% { opacity: .3; }
+  30% { opacity: 1; }
+}
+
+/* --- sugestões e entrada --- */
+
+.sugestoes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 0 18px 12px;
+}
+
+.sugestao {
+  background: transparent;
+  border: 1px solid var(--borda);
+  color: var(--texto-suave);
+  border-radius: 999px;
+  padding: 6px 13px;
+  font-size: .8rem;
+  cursor: pointer;
+  transition: all .15s;
+}
+
+.sugestao:hover { border-color: var(--primaria); color: var(--texto); }
+
+.entrada {
+  display: flex;
+  gap: 10px;
+  padding: 14px 18px;
+  border-top: 1px solid var(--borda);
+  background: var(--superficie-clara);
+}
+
+.entrada input {
+  flex: 1;
+  padding: 11px 14px;
+  border-radius: 999px;
+  border: 1px solid var(--borda);
+  background: var(--fundo);
+  color: var(--texto);
+  font-size: .95rem;
+  font-family: inherit;
+}
+
+.entrada input:focus {
+  outline: none;
+  border-color: var(--primaria);
+}
+
+.entrada button {
+  padding: 11px 24px;
+  border-radius: 999px;
+  border: none;
+  background: var(--primaria);
+  color: #fff;
+  font-weight: 600;
+  font-size: .9rem;
+  cursor: pointer;
+  transition: background .15s;
+}
+
+.entrada button:hover:not(:disabled) { background: var(--primaria-escura); }
+.entrada button:disabled { opacity: .5; cursor: not-allowed; }
+
+/* --- painel de análise --- */
+
+.painel-analise {
+  background: var(--superficie);
+  border: 1px solid var(--borda);
+  border-radius: var(--raio);
+  padding: 18px;
+  overflow-y: auto;
+  max-height: calc(60vh + 118px);
+}
+
+.painel-analise h2 {
+  margin: 0 0 16px;
+  font-size: .95rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--texto-suave);
+}
+
+.bloco { margin-bottom: 20px; }
+
+.bloco h3 {
+  margin: 0 0 6px;
+  font-size: .8rem;
+  color: var(--texto-suave);
+  font-weight: 600;
+}
+
+.valor { margin: 0; font-size: .95rem; }
+
+.valor .confianca { color: var(--texto-suave); font-size: .8rem; }
+
+.lista, .lista-etiquetas {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.lista-etiquetas { flex-direction: row; flex-wrap: wrap; }
+
+.lista li { font-size: .88rem; }
+
+.lista .pontuacao { color: var(--texto-suave); font-size: .78rem; }
+
+.lista-etiquetas li {
+  background: var(--superficie-clara);
+  border-radius: 6px;
+  padding: 3px 9px;
+  font-size: .78rem;
+}
+
+.vazio { color: var(--texto-suave); }
+
+.rodape-bloco {
+  margin: 6px 0 0;
+  font-size: .72rem;
+  color: var(--texto-suave);
+}
+
+.risco-alto { color: var(--primaria); font-weight: 600; }
+.risco-baixo { color: var(--sucesso); font-weight: 600; }
+
+/* --- rodapé --- */
+
+.rodape {
+  border-top: 1px solid var(--borda);
+  padding-top: 12px;
+}
+
+.rodape p {
+  margin: 0;
+  font-size: .76rem;
+  color: var(--texto-suave);
+  text-align: center;
+}
+
+@media (max-width: 860px) {
+  .conteudo { grid-template-columns: 1fr; }
+  .painel-analise { max-height: none; }
+  .balao { max-width: 90%; }
+}

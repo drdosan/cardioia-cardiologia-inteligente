@@ -1,0 +1,1964 @@
+{
+  "name": "CardioIA - Assistente Cardiologico",
+  "description": "Assistente conversacional de orientacao cardiologica do projeto CardioIA (FIAP, Fase 5). Prototipo academico: nao realiza diagnostico nem prescricao.",
+  "language": "pt-br",
+  "workspace_id": "",
+  "learning_opt_out": false,
+  "status": "Available",
+  "intents": [
+    {
+      "intent": "saudacao",
+      "description": null,
+      "examples": [
+        {
+          "text": "oi"
+        },
+        {
+          "text": "olá"
+        },
+        {
+          "text": "bom dia"
+        },
+        {
+          "text": "boa tarde"
+        },
+        {
+          "text": "boa noite"
+        },
+        {
+          "text": "e aí"
+        },
+        {
+          "text": "oi, tudo bem?"
+        },
+        {
+          "text": "olá, preciso de ajuda"
+        },
+        {
+          "text": "oi cardioia"
+        },
+        {
+          "text": "quero começar o atendimento"
+        }
+      ]
+    },
+    {
+      "intent": "capacidades_assistente",
+      "description": null,
+      "examples": [
+        {
+          "text": "o que você faz"
+        },
+        {
+          "text": "como você pode me ajudar"
+        },
+        {
+          "text": "quais são suas funções"
+        },
+        {
+          "text": "você é um médico"
+        },
+        {
+          "text": "com o que você me ajuda"
+        },
+        {
+          "text": "para que serve esse assistente"
+        },
+        {
+          "text": "você dá diagnóstico"
+        },
+        {
+          "text": "o que eu posso perguntar aqui"
+        }
+      ]
+    },
+    {
+      "intent": "emergencia_cardiaca",
+      "description": null,
+      "examples": [
+        {
+          "text": "estou com uma dor muito forte no peito agora"
+        },
+        {
+          "text": "dor no peito que irradia para o braço esquerdo"
+        },
+        {
+          "text": "sinto um aperto forte no peito e suor frio"
+        },
+        {
+          "text": "acho que estou tendo um infarto"
+        },
+        {
+          "text": "meu pai desmaiou e está pálido"
+        },
+        {
+          "text": "dor no peito forte com falta de ar e enjoo"
+        },
+        {
+          "text": "estou passando muito mal do coração"
+        },
+        {
+          "text": "dor esmagadora no peito há vinte minutos"
+        },
+        {
+          "text": "peito apertado e não consigo respirar"
+        },
+        {
+          "text": "socorro, dor no peito muito forte"
+        },
+        {
+          "text": "Sinto um aperto forte no tórax desde ontem à tarde, a sensação irradia para o braço esquerdo e me deixa com medo de fazer qualquer esforço físico."
+        }
+      ]
+    },
+    {
+      "intent": "relatar_sintoma",
+      "description": null,
+      "examples": [
+        {
+          "text": "estou sentindo falta de ar"
+        },
+        {
+          "text": "sinto o coração acelerado às vezes"
+        },
+        {
+          "text": "tenho sentido cansaço quando subo escadas"
+        },
+        {
+          "text": "minhas pernas estão inchadas"
+        },
+        {
+          "text": "sinto tontura quando levanto rápido"
+        },
+        {
+          "text": "ando com palpitações à noite"
+        },
+        {
+          "text": "sinto um desconforto no peito quando caminho"
+        },
+        {
+          "text": "tenho me cansado muito ultimamente"
+        },
+        {
+          "text": "acordo com falta de ar"
+        },
+        {
+          "text": "meu coração dispara do nada"
+        },
+        {
+          "text": "sinto dor no peito leve de vez em quando"
+        },
+        {
+          "text": "sinto dor no peito e falta de ar quando subo escadas"
+        },
+        {
+          "text": "tenho falta de ar e cansaço quando caminho rápido"
+        },
+        {
+          "text": "sinto um aperto no peito no esforço que passa com o repouso"
+        },
+        {
+          "text": "queria falar sobre um sintoma"
+        },
+        {
+          "text": "Há dois dias sinto uma dor no peito que piora quando subo escadas ou carrego peso; não consigo mais caminhar rápido sem parar e isso está atrapalhando o trabalho."
+        },
+        {
+          "text": "Há uma semana sinto cansaço extremo mesmo depois de dormir bem, e ontem acordei com falta de ar ao deitar, precisando de travesseiros extras para respirar melhor."
+        },
+        {
+          "text": "Nos últimos dias percebo falta de ar ao subir um lance de escada e um peso no peito que passa em alguns minutos de repouso, o que nunca me acontecia antes."
+        },
+        {
+          "text": "Tenho palpitações frequentes há três dias, sinto o coração disparado mesmo em repouso e às vezes tontura leve ao me levantar."
+        },
+        {
+          "text": "Sinto inchaço nos tornozelos ao fim do dia e cansaço para atividades domésticas simples, como varrer a casa, há cerca de dez dias."
+        },
+        {
+          "text": "Há cinco dias sinto dor no peito que melhora quando inclino o corpo para frente e piora quando deito totalmente, acompanhada de febre baixa."
+        },
+        {
+          "text": "Nos últimos meses sinto tonteira ao fazer esforços leves e zumbido no ouvido; na última consulta disseram que minha pressão arterial estava elevada."
+        },
+        {
+          "text": "Sinto aperto na garganta e falta de ar quando corro ou me apresso; os sintomas somem em cerca de dez minutos ao descansar, mas voltam no próximo esforço."
+        }
+      ]
+    },
+    {
+      "intent": "duvida_fator_risco",
+      "description": null,
+      "examples": [
+        {
+          "text": "minha pressão está 150 por 100, é ruim?"
+        },
+        {
+          "text": "colesterol alto faz mal ao coração"
+        },
+        {
+          "text": "diabetes aumenta o risco cardíaco?"
+        },
+        {
+          "text": "fumar prejudica o coração"
+        },
+        {
+          "text": "sou obeso, tenho mais risco de infarto?"
+        },
+        {
+          "text": "meu pai teve infarto, eu tenho risco?"
+        },
+        {
+          "text": "o que é hipertensão"
+        },
+        {
+          "text": "estresse causa problema no coração"
+        },
+        {
+          "text": "sedentarismo é fator de risco"
+        },
+        {
+          "text": "quais são os fatores de risco cardiovascular"
+        }
+      ]
+    },
+    {
+      "intent": "prevencao_habitos",
+      "description": null,
+      "examples": [
+        {
+          "text": "como prevenir doenças do coração"
+        },
+        {
+          "text": "que exercício posso fazer"
+        },
+        {
+          "text": "qual dieta é boa para o coração"
+        },
+        {
+          "text": "quanto de sal eu posso comer"
+        },
+        {
+          "text": "como melhorar minha saúde cardiovascular"
+        },
+        {
+          "text": "dicas para cuidar do coração"
+        },
+        {
+          "text": "caminhada ajuda o coração"
+        },
+        {
+          "text": "o que fazer para baixar o colesterol"
+        }
+      ]
+    },
+    {
+      "intent": "duvida_exame",
+      "description": null,
+      "examples": [
+        {
+          "text": "para que serve o eletrocardiograma"
+        },
+        {
+          "text": "o que é um ecocardiograma"
+        },
+        {
+          "text": "como é o teste ergométrico"
+        },
+        {
+          "text": "preciso jejuar para o exame de sangue"
+        },
+        {
+          "text": "o que o holter mede"
+        },
+        {
+          "text": "como me preparo para o teste de esforço"
+        },
+        {
+          "text": "quanto tempo demora o resultado do exame"
+        },
+        {
+          "text": "esse exame dói"
+        }
+      ]
+    },
+    {
+      "intent": "duvida_medicamento",
+      "description": null,
+      "examples": [
+        {
+          "text": "posso parar de tomar o remédio da pressão"
+        },
+        {
+          "text": "esqueci de tomar meu remédio"
+        },
+        {
+          "text": "qual é a dose do meu medicamento"
+        },
+        {
+          "text": "posso tomar dois comprimidos juntos"
+        },
+        {
+          "text": "esse remédio tem efeito colateral"
+        },
+        {
+          "text": "posso beber tomando esse remédio"
+        },
+        {
+          "text": "posso trocar meu remédio por outro"
+        }
+      ]
+    },
+    {
+      "intent": "agendar_consulta",
+      "description": null,
+      "examples": [
+        {
+          "text": "quero marcar uma consulta"
+        },
+        {
+          "text": "preciso agendar com o cardiologista"
+        },
+        {
+          "text": "como marco um retorno"
+        },
+        {
+          "text": "tem horário para essa semana"
+        },
+        {
+          "text": "quero agendar atendimento"
+        },
+        {
+          "text": "gostaria de marcar uma avaliação"
+        }
+      ]
+    },
+    {
+      "intent": "monitoramento_dispositivo",
+      "description": null,
+      "examples": [
+        {
+          "text": "o que significam os dados do meu monitor"
+        },
+        {
+          "text": "meu batimento está em 130"
+        },
+        {
+          "text": "como funciona o monitoramento contínuo"
+        },
+        {
+          "text": "meu dispositivo mostrou um alerta"
+        },
+        {
+          "text": "qual batimento é considerado normal"
+        },
+        {
+          "text": "minha frequência cardíaca está alta"
+        }
+      ]
+    },
+    {
+      "intent": "falar_com_humano",
+      "description": null,
+      "examples": [
+        {
+          "text": "quero falar com um atendente"
+        },
+        {
+          "text": "me passa para uma pessoa"
+        },
+        {
+          "text": "preciso falar com um médico de verdade"
+        },
+        {
+          "text": "quero atendimento humano"
+        },
+        {
+          "text": "você não está me ajudando, chama alguém"
+        },
+        {
+          "text": "tem alguém aí para conversar"
+        }
+      ]
+    },
+    {
+      "intent": "agradecimento",
+      "description": null,
+      "examples": [
+        {
+          "text": "obrigado"
+        },
+        {
+          "text": "obrigada"
+        },
+        {
+          "text": "valeu"
+        },
+        {
+          "text": "muito obrigado pela ajuda"
+        },
+        {
+          "text": "você me ajudou bastante"
+        },
+        {
+          "text": "agradeço"
+        }
+      ]
+    },
+    {
+      "intent": "despedida",
+      "description": null,
+      "examples": [
+        {
+          "text": "tchau"
+        },
+        {
+          "text": "até logo"
+        },
+        {
+          "text": "encerrar atendimento"
+        },
+        {
+          "text": "é só isso"
+        },
+        {
+          "text": "pode encerrar"
+        },
+        {
+          "text": "até mais"
+        },
+        {
+          "text": "adeus"
+        }
+      ]
+    }
+  ],
+  "entities": [
+    {
+      "entity": "sintoma",
+      "fuzzy_match": false,
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "dor_no_peito",
+          "synonyms": [
+            "dor no peito",
+            "dor torácica",
+            "aperto no peito",
+            "aperto no tórax",
+            "peso no peito",
+            "queimação no peito",
+            "desconforto no peito",
+            "dor no coração",
+            "dor forte no peito",
+            "dor muito forte no peito",
+            "dor leve no peito",
+            "dor intensa no peito",
+            "dor insuportável no peito",
+            "aperto forte no peito",
+            "aperto muito forte no peito",
+            "aperto leve no peito",
+            "aperto intensa no peito",
+            "aperto insuportável no peito",
+            "aperto forte no tórax",
+            "aperto muito forte no tórax",
+            "aperto leve no tórax",
+            "aperto intensa no tórax",
+            "aperto insuportável no tórax",
+            "peso forte no peito",
+            "peso muito forte no peito",
+            "peso leve no peito",
+            "peso intensa no peito",
+            "peso insuportável no peito",
+            "queimação forte no peito",
+            "queimação muito forte no peito",
+            "queimação leve no peito",
+            "queimação intensa no peito",
+            "queimação insuportável no peito",
+            "desconforto forte no peito",
+            "desconforto muito forte no peito",
+            "desconforto leve no peito",
+            "desconforto intensa no peito",
+            "desconforto insuportável no peito",
+            "dor forte no coração",
+            "dor muito forte no coração",
+            "dor leve no coração",
+            "dor intensa no coração",
+            "dor insuportável no coração"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "falta_de_ar",
+          "synonyms": [
+            "falta de ar",
+            "sem fôlego",
+            "dificuldade para respirar",
+            "ofegante",
+            "não consigo respirar",
+            "respiração curta"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "palpitacao",
+          "synonyms": [
+            "palpitação",
+            "coração acelerado",
+            "coração disparado",
+            "taquicardia",
+            "coração batendo forte",
+            "batimentos disparados",
+            "palpitações"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "batimentos_irregulares",
+          "synonyms": [
+            "batimentos irregulares",
+            "coração descompassado",
+            "batidas falhando",
+            "coração fora do ritmo",
+            "arritmia"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "aperto_na_garganta",
+          "synonyms": [
+            "aperto na garganta",
+            "nó na garganta",
+            "garganta apertada",
+            "queimação na garganta",
+            "aperto forte na garganta",
+            "aperto muito forte na garganta",
+            "aperto leve na garganta",
+            "aperto intensa na garganta",
+            "aperto insuportável na garganta",
+            "nó forte na garganta",
+            "nó muito forte na garganta",
+            "nó leve na garganta",
+            "nó intensa na garganta",
+            "nó insuportável na garganta",
+            "queimação forte na garganta",
+            "queimação muito forte na garganta",
+            "queimação leve na garganta",
+            "queimação intensa na garganta",
+            "queimação insuportável na garganta"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "zumbido_ouvido",
+          "synonyms": [
+            "zumbido no ouvido",
+            "zunido no ouvido",
+            "apito no ouvido",
+            "zumbido forte no ouvido",
+            "zumbido muito forte no ouvido",
+            "zumbido leve no ouvido",
+            "zumbido intensa no ouvido",
+            "zumbido insuportável no ouvido",
+            "zunido forte no ouvido",
+            "zunido muito forte no ouvido",
+            "zunido leve no ouvido",
+            "zunido intensa no ouvido",
+            "zunido insuportável no ouvido",
+            "apito forte no ouvido",
+            "apito muito forte no ouvido",
+            "apito leve no ouvido",
+            "apito intensa no ouvido",
+            "apito insuportável no ouvido"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "febre",
+          "synonyms": [
+            "febre",
+            "febril",
+            "temperatura alta",
+            "corpo quente"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "tontura",
+          "synonyms": [
+            "tontura",
+            "tonteira",
+            "vertigem",
+            "cabeça leve",
+            "zonzo"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "cansaco",
+          "synonyms": [
+            "cansaço",
+            "fadiga",
+            "canso fácil",
+            "sem energia",
+            "cansaço extremo",
+            "fraqueza"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "inchaco_pernas",
+          "synonyms": [
+            "inchaço nas pernas",
+            "pernas inchadas",
+            "pé inchado",
+            "edema",
+            "tornozelo inchado",
+            "inchaço nos tornozelos",
+            "inchaço",
+            "inchaço forte nas pernas",
+            "inchaço muito forte nas pernas",
+            "inchaço leve nas pernas",
+            "inchaço intensa nas pernas",
+            "inchaço insuportável nas pernas",
+            "inchaço forte nos tornozelos",
+            "inchaço muito forte nos tornozelos",
+            "inchaço leve nos tornozelos",
+            "inchaço intensa nos tornozelos",
+            "inchaço insuportável nos tornozelos"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "sudorese",
+          "synonyms": [
+            "suor frio",
+            "sudorese",
+            "suando muito",
+            "suor excessivo"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "dor_no_braco",
+          "synonyms": [
+            "dor no braço",
+            "dor no braço esquerdo",
+            "formigamento no braço",
+            "dor irradiando para o braço",
+            "irradiando para o braço",
+            "irradia para o braço",
+            "braço esquerdo",
+            "dor forte no braço",
+            "dor muito forte no braço",
+            "dor leve no braço",
+            "dor intensa no braço",
+            "dor insuportável no braço",
+            "dor forte no braço esquerdo",
+            "dor muito forte no braço esquerdo",
+            "dor leve no braço esquerdo",
+            "dor intensa no braço esquerdo",
+            "dor insuportável no braço esquerdo",
+            "formigamento forte no braço",
+            "formigamento muito forte no braço",
+            "formigamento leve no braço",
+            "formigamento intensa no braço",
+            "formigamento insuportável no braço"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "desmaio",
+          "synonyms": [
+            "desmaio",
+            "desmaiei",
+            "desmaiou",
+            "desmaiado",
+            "perdi a consciência",
+            "perdeu a consciência",
+            "apaguei",
+            "quase desmaiei",
+            "síncope"
+          ]
+        }
+      ]
+    },
+    {
+      "entity": "intensidade",
+      "fuzzy_match": false,
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "forte",
+          "synonyms": [
+            "forte",
+            "muito forte",
+            "insuportável",
+            "intensa",
+            "esmagadora",
+            "não aguento",
+            "terrível"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "moderada",
+          "synonyms": [
+            "moderada",
+            "média",
+            "incomoda",
+            "atrapalha"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "leve",
+          "synonyms": [
+            "leve",
+            "fraca",
+            "suave",
+            "levinha",
+            "quase nada"
+          ]
+        }
+      ]
+    },
+    {
+      "entity": "duracao",
+      "fuzzy_match": false,
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "agora",
+          "synonyms": [
+            "agora",
+            "neste momento",
+            "começou agora",
+            "há minutos",
+            "há poucos minutos",
+            "acabou de começar"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "horas",
+          "synonyms": [
+            "há horas",
+            "desde hoje de manhã",
+            "desde ontem à noite",
+            "algumas horas"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "dias",
+          "synonyms": [
+            "há dias",
+            "faz dias",
+            "desde a semana passada",
+            "alguns dias"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "semanas",
+          "synonyms": [
+            "há semanas",
+            "faz meses",
+            "há muito tempo",
+            "várias semanas"
+          ]
+        }
+      ]
+    },
+    {
+      "entity": "fator_risco",
+      "fuzzy_match": false,
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "hipertensao",
+          "synonyms": [
+            "pressão alta",
+            "hipertensão",
+            "hipertenso",
+            "pressão está alta",
+            "pressão descontrolada",
+            "pressão elevada",
+            "pressão nas alturas",
+            "pressão subiu",
+            "pressão arterial",
+            "pressão arterial elevada"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "colesterol_alto",
+          "synonyms": [
+            "colesterol",
+            "colesterol alto",
+            "colesterol elevado",
+            "dislipidemia",
+            "triglicérides",
+            "triglicérides alto",
+            "gordura no sangue"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "diabetes",
+          "synonyms": [
+            "diabetes",
+            "diabético",
+            "glicemia alta",
+            "açúcar alto no sangue"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "tabagismo",
+          "synonyms": [
+            "fumo",
+            "fumante",
+            "cigarro",
+            "tabagismo"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "obesidade",
+          "synonyms": [
+            "obesidade",
+            "obeso",
+            "acima do peso",
+            "sobrepeso"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "sedentarismo",
+          "synonyms": [
+            "sedentarismo",
+            "sedentário",
+            "não faço exercício",
+            "parado o dia todo"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "historico_familiar",
+          "synonyms": [
+            "histórico familiar",
+            "meu pai teve infarto",
+            "minha mãe tem problema no coração",
+            "doença de família"
+          ]
+        }
+      ]
+    },
+    {
+      "entity": "contexto",
+      "fuzzy_match": false,
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "esforco",
+          "synonyms": [
+            "esforço",
+            "esforço físico",
+            "subir escadas",
+            "escada",
+            "carregar peso",
+            "correr",
+            "caminhar rápido",
+            "atividades simples",
+            "me apressar",
+            "fazer força"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "repouso",
+          "synonyms": [
+            "repouso",
+            "em repouso",
+            "descansar",
+            "descanso",
+            "parado",
+            "sentado",
+            "sem fazer nada"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "deitado",
+          "synonyms": [
+            "deitar",
+            "ao deitar",
+            "deitado",
+            "travesseiros",
+            "quando me deito",
+            "ao dormir"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "inclinar_corpo",
+          "synonyms": [
+            "inclinar",
+            "inclinar o corpo",
+            "inclinado para frente",
+            "quando me inclino"
+          ]
+        }
+      ]
+    },
+    {
+      "entity": "caracteristica",
+      "fuzzy_match": false,
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "irradiacao",
+          "synonyms": [
+            "irradia",
+            "irradiando",
+            "irradiada",
+            "espalha para",
+            "vai para o braço",
+            "desce pelo braço",
+            "sobe para o pescoço",
+            "vai para a mandíbula"
+          ]
+        }
+      ]
+    },
+    {
+      "entity": "turno",
+      "fuzzy_match": false,
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "manhã",
+          "synonyms": [
+            "de manhã",
+            "pela manhã",
+            "cedo",
+            "matutino"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "tarde",
+          "synonyms": [
+            "à tarde",
+            "de tarde",
+            "depois do almoço",
+            "vespertino"
+          ]
+        }
+      ]
+    },
+    {
+      "entity": "exame",
+      "fuzzy_match": false,
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "eletrocardiograma",
+          "synonyms": [
+            "eletrocardiograma",
+            "eletro",
+            "ecg"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "ecocardiograma",
+          "synonyms": [
+            "ecocardiograma",
+            "eco do coração",
+            "ultrassom do coração"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "teste_ergometrico",
+          "synonyms": [
+            "teste ergométrico",
+            "teste de esforço",
+            "esteira"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "holter",
+          "synonyms": [
+            "holter",
+            "monitor de 24 horas",
+            "holter 24h"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "exame_sangue",
+          "synonyms": [
+            "exame de sangue",
+            "colesterol total",
+            "troponina",
+            "hemograma",
+            "perfil lipídico"
+          ]
+        }
+      ]
+    }
+  ],
+  "dialog_nodes": [
+    {
+      "type": "standard",
+      "title": "Boas-vindas",
+      "conditions": "welcome",
+      "output": {
+        "generic": [
+          {
+            "response_type": "text",
+            "values": [
+              {
+                "text": "Olá! Eu sou o CardioIA, assistente virtual de orientação cardiológica. Posso ajudar com sintomas, fatores de risco, exames, prevenção e agendamento."
+              }
+            ],
+            "selection_policy": "sequential"
+          },
+          {
+            "response_type": "text",
+            "values": [
+              {
+                "text": "Sou um protótipo acadêmico do CardioIA e não substituo avaliação médica. Em caso de emergência, ligue 192 (SAMU). Como posso ajudar?"
+              }
+            ],
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "context": {
+        "falhas": 0,
+        "atendimento": "iniciado"
+      },
+      "dialog_node": "boas_vindas",
+      "parent": null,
+      "previous_sibling": null
+    },
+    {
+      "type": "standard",
+      "title": "Emergência cardíaca",
+      "conditions": "#emergencia_cardiaca || @sintoma:desmaio || (@sintoma:dor_no_peito && @intensidade:forte) || (@sintoma:dor_no_peito && @duracao:agora) || (@sintoma:dor_no_peito && @sintoma:sudorese) || (@sintoma:dor_no_peito && @sintoma:dor_no_braco) || (@sintoma:dor_no_peito && @caracteristica:irradiacao)",
+      "output": {
+        "generic": [
+          {
+            "response_type": "text",
+            "values": [
+              {
+                "text": "⚠️ ATENÇÃO: os sinais que você descreveu podem indicar uma emergência cardíaca.\n\n1. Ligue AGORA para o SAMU (192) ou vá ao pronto-socorro mais próximo.\n2. Não dirija — peça ajuda a alguém.\n3. Fique em repouso, sentado ou deitado, e afrouxe roupas apertadas.\n4. Não tome nenhum medicamento por conta própria.\n\nNão vou seguir com a triagem: procure atendimento imediato."
+              }
+            ],
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "context": {
+        "prioridade": "emergencia",
+        "falhas": 0,
+        "fluxo": ""
+      },
+      "description": "Encerra a triagem e encaminha para atendimento de urgência.",
+      "digress_in": "does_not_return",
+      "dialog_node": "emergencia",
+      "parent": null,
+      "previous_sibling": "boas_vindas"
+    },
+    {
+      "type": "standard",
+      "title": "Triagem de sintoma (em andamento)",
+      "conditions": "$fluxo == 'triagem' && !#duvida_exame  && !#duvida_fator_risco  && !#prevencao_habitos  && !#duvida_medicamento  && !#monitoramento_dispositivo  && !#capacidades_assistente  && !#falar_com_humano  && !#despedida",
+      "output": {},
+      "context": {
+        "sintoma": "<? @sintoma != null ? @sintoma.value : $sintoma ?>",
+        "contexto_sintoma": "<? @contexto != null ? @contexto.value : $contexto_sintoma ?>",
+        "duracao": "<? @duracao != null ? @duracao.value : $duracao ?>",
+        "intensidade": "<? @intensidade != null ? @intensidade.value : $intensidade ?>",
+        "falhas": 0
+      },
+      "next_step": {
+        "behavior": "jump_to",
+        "dialog_node": "triagem_sintoma_pergunta_sintoma",
+        "selector": "condition"
+      },
+      "dialog_node": "triagem_sintoma_em_andamento",
+      "parent": null,
+      "previous_sibling": "emergencia"
+    },
+    {
+      "type": "standard",
+      "title": "Agendamento de consulta (em andamento)",
+      "conditions": "$fluxo == 'agendamento' && !#duvida_exame  && !#duvida_fator_risco  && !#prevencao_habitos  && !#duvida_medicamento  && !#monitoramento_dispositivo  && !#capacidades_assistente  && !#falar_com_humano  && !#despedida",
+      "output": {},
+      "context": {
+        "turno": "<? @turno != null ? @turno.value : $turno ?>",
+        "falhas": 0
+      },
+      "next_step": {
+        "behavior": "jump_to",
+        "dialog_node": "agendamento_pergunta_turno",
+        "selector": "condition"
+      },
+      "dialog_node": "agendamento_em_andamento",
+      "parent": null,
+      "previous_sibling": "triagem_sintoma_em_andamento"
+    },
+    {
+      "type": "standard",
+      "title": "Saudação",
+      "conditions": "#saudacao && intents[0].confidence > 0.5",
+      "output": {
+        "generic": [
+          {
+            "response_type": "text",
+            "values": [
+              {
+                "text": "Olá! Que bom falar com você. Posso orientar sobre sintomas, fatores de risco, exames, hábitos de prevenção e agendamento. Sobre o que quer conversar?"
+              }
+            ],
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "context": {
+        "falhas": 0
+      },
+      "dialog_node": "saudacao",
+      "parent": null,
+      "previous_sibling": "agendamento_em_andamento"
+    },
+    {
+      "type": "standard",
+      "title": "Capacidades do assistente",
+      "conditions": "#capacidades_assistente",
+      "output": {
+        "generic": [
+          {
+            "response_type": "text",
+            "values": [
+              {
+                "text": "Sou um assistente virtual educacional do projeto CardioIA. Posso:\n• registrar e organizar sintomas que você relatar;\n• explicar fatores de risco (pressão, colesterol, diabetes, tabagismo);\n• esclarecer para que servem os exames cardiológicos;\n• dar orientações gerais de prevenção;\n• abrir uma solicitação de consulta.\n\nO que eu NÃO faço: diagnóstico, prescrição ou ajuste de medicamento. Sou um protótipo acadêmico do CardioIA e não substituo avaliação médica."
+              }
+            ],
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "context": {
+        "falhas": 0
+      },
+      "digress_in": "returns",
+      "dialog_node": "capacidades",
+      "parent": null,
+      "previous_sibling": "saudacao"
+    },
+    {
+      "type": "standard",
+      "title": "Triagem de sintoma",
+      "conditions": "#relatar_sintoma || @sintoma",
+      "output": {},
+      "context": {
+        "sintoma": "<? @sintoma != null ? @sintoma.value : null ?>",
+        "contexto_sintoma": "<? @contexto != null ? @contexto.value : null ?>",
+        "duracao": "<? @duracao != null ? @duracao.value : null ?>",
+        "intensidade": "<? @intensidade != null ? @intensidade.value : null ?>",
+        "fluxo": "triagem",
+        "falhas": 0
+      },
+      "next_step": {
+        "behavior": "jump_to",
+        "dialog_node": "triagem_sintoma_pergunta_sintoma",
+        "selector": "condition"
+      },
+      "dialog_node": "triagem_sintoma",
+      "parent": null,
+      "previous_sibling": "capacidades"
+    },
+    {
+      "type": "standard",
+      "title": "Fatores de risco",
+      "conditions": "#duvida_fator_risco || @fator_risco",
+      "output": {},
+      "context": {
+        "falhas": 0
+      },
+      "next_step": {
+        "behavior": "skip_user_input"
+      },
+      "digress_in": "returns",
+      "dialog_node": "fator_risco",
+      "parent": null,
+      "previous_sibling": "triagem_sintoma"
+    },
+    {
+      "type": "standard",
+      "conditions": "@fator_risco:hipertensao",
+      "output": {
+        "generic": [
+          {
+            "response_type": "text",
+            "values": [
+              {
+                "text": "A hipertensão é o principal fator de risco modificável para doença cardiovascular. Valores acima de 140/90 mmHg em medidas repetidas merecem avaliação médica.\n\nO que ajuda: reduzir sal, manter peso saudável, atividade física regular, evitar álcool em excesso e medir a pressão com frequência.\n\nO ajuste de medicação é sempre decisão médica. Sou um protótipo acadêmico do CardioIA e não substituo avaliação médica."
+              }
+            ],
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "dialog_node": "fr_hipertensao",
+      "parent": "fator_risco",
+      "previous_sibling": null
+    },
+    {
+      "type": "standard",
+      "conditions": "@fator_risco:colesterol_alto",
+      "output": {
+        "generic": [
+          {
+            "response_type": "text",
+            "values": [
+              {
+                "text": "O colesterol elevado favorece o acúmulo de placas nas artérias e está associado a infarto e AVC.\n\nO que ajuda: reduzir gordura saturada e frituras, aumentar fibras, praticar exercício e repetir o perfil lipídico no intervalo orientado pelo seu médico. Sou um protótipo acadêmico do CardioIA e não substituo avaliação médica."
+              }
+            ],
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "dialog_node": "fr_colesterol",
+      "parent": "fator_risco",
+      "previous_sibling": "fr_hipertensao"
+    },
+    {
+      "type": "standard",
+      "conditions": "@fator_risco:diabetes",
+      "output": {
+        "generic": [
+          {
+            "response_type": "text",
+            "values": [
+              {
+                "text": "O diabetes aproximadamente dobra o risco cardiovascular e pode tornar os sintomas de infarto menos típicos.\n\nControle da glicemia, da pressão e do colesterol caminham juntos. Mantenha acompanhamento regular. Sou um protótipo acadêmico do CardioIA e não substituo avaliação médica."
+              }
+            ],
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "dialog_node": "fr_diabetes",
+      "parent": "fator_risco",
+      "previous_sibling": "fr_colesterol"
+    },
+    {
+      "type": "standard",
+      "conditions": "@fator_risco:tabagismo",
+      "output": {
+        "generic": [
+          {
+            "response_type": "text",
+            "values": [
+              {
+                "text": "O tabagismo lesiona o endotélio dos vasos e aumenta muito o risco de infarto. É o fator de risco com maior benefício ao ser eliminado: parte do risco cai já nos primeiros meses após parar.\n\nO SUS oferece programa gratuito de cessação do tabagismo. Sou um protótipo acadêmico do CardioIA e não substituo avaliação médica."
+              }
+            ],
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "dialog_node": "fr_tabagismo",
+      "parent": "fator_risco",
+      "previous_sibling": "fr_diabetes"
+    },
+    {
+      "type": "standard",
+      "conditions": "@fator_risco:obesidade",
+      "output": {
+        "generic": [
+          {
+            "response_type": "text",
+            "values": [
+              {
+                "text": "O excesso de peso, sobretudo a gordura abdominal, associa-se a hipertensão, diabetes e dislipidemia.\n\nPerdas de 5% a 10% do peso já trazem benefício mensurável para o coração. Busque orientação nutricional profissional. Sou um protótipo acadêmico do CardioIA e não substituo avaliação médica."
+              }
+            ],
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "dialog_node": "fr_obesidade",
+      "parent": "fator_risco",
+      "previous_sibling": "fr_tabagismo"
+    },
+    {
+      "type": "standard",
+      "conditions": "@fator_risco:sedentarismo",
+      "output": {
+        "generic": [
+          {
+            "response_type": "text",
+            "values": [
+              {
+                "text": "O sedentarismo reduz a capacidade funcional do coração. A recomendação geral é de 150 minutos semanais de atividade moderada.\n\nAntes de iniciar, faça avaliação médica — principalmente após os 40 anos. Sou um protótipo acadêmico do CardioIA e não substituo avaliação médica."
+              }
+            ],
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "dialog_node": "fr_sedentarismo",
+      "parent": "fator_risco",
+      "previous_sibling": "fr_obesidade"
+    },
+    {
+      "type": "standard",
+      "conditions": "@fator_risco:historico_familiar",
+      "output": {
+        "generic": [
+          {
+            "response_type": "text",
+            "values": [
+              {
+                "text": "Histórico familiar de doença cardíaca precoce (homens antes dos 55 anos, mulheres antes dos 65) é fator de risco não modificável e indica rastreamento mais atento.\n\nVale informar isso ao seu cardiologista na consulta. Sou um protótipo acadêmico do CardioIA e não substituo avaliação médica."
+              }
+            ],
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "dialog_node": "fr_familiar",
+      "parent": "fator_risco",
+      "previous_sibling": "fr_sedentarismo"
+    },
+    {
+      "type": "standard",
+      "conditions": "true",
+      "output": {
+        "generic": [
+          {
+            "response_type": "text",
+            "values": [
+              {
+                "text": "Os principais fatores de risco cardiovascular são: hipertensão, colesterol alto, diabetes, tabagismo, obesidade, sedentarismo, estresse e histórico familiar.\n\nSobre qual deles você quer saber mais?"
+              }
+            ],
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "dialog_node": "fr_geral",
+      "parent": "fator_risco",
+      "previous_sibling": "fr_familiar"
+    },
+    {
+      "type": "standard",
+      "title": "Prevenção e hábitos",
+      "conditions": "#prevencao_habitos",
+      "output": {
+        "generic": [
+          {
+            "response_type": "text",
+            "values": [
+              {
+                "text": "Orientações gerais de prevenção cardiovascular:\n• Atividade física: cerca de 150 minutos semanais de intensidade moderada.\n• Alimentação: mais frutas, verduras, grãos integrais e peixes; menos sal, ultraprocessados e frituras.\n• Sal: até cerca de 5 g por dia (uma colher de chá).\n• Não fumar e moderar o álcool.\n• Sono regular e manejo do estresse.\n• Medir pressão, glicemia e colesterol periodicamente.\n\nSão recomendações gerais de saúde pública. Sou um protótipo acadêmico do CardioIA e não substituo avaliação médica."
+              }
+            ],
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "context": {
+        "falhas": 0
+      },
+      "digress_in": "returns",
+      "dialog_node": "prevencao",
+      "parent": null,
+      "previous_sibling": "fator_risco"
+    },
+    {
+      "type": "standard",
+      "title": "Exames cardiológicos",
+      "conditions": "#duvida_exame || @exame",
+      "output": {},
+      "context": {
+        "falhas": 0
+      },
+      "next_step": {
+        "behavior": "skip_user_input"
+      },
+      "digress_in": "returns",
+      "dialog_node": "exames",
+      "parent": null,
+      "previous_sibling": "prevencao"
+    },
+    {
+      "type": "standard",
+      "conditions": "@exame:eletrocardiograma",
+      "output": {
+        "generic": [
+          {
+            "response_type": "text",
+            "values": [
+              {
+                "text": "O eletrocardiograma (ECG) registra a atividade elétrica do coração em repouso. Dura poucos minutos, é indolor e não exige preparo especial.\n\nAjuda a identificar arritmias, sobrecarga das câmaras e sinais de isquemia."
+              }
+            ],
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "dialog_node": "ex_eletro",
+      "parent": "exames",
+      "previous_sibling": null
+    },
+    {
+      "type": "standard",
+      "conditions": "@exame:ecocardiograma",
+      "output": {
+        "generic": [
+          {
+            "response_type": "text",
+            "values": [
+              {
+                "text": "O ecocardiograma é um ultrassom do coração: mostra as câmaras, as válvulas e a força de contração (fração de ejeção). É indolor, usa gel e dura cerca de 20 a 30 minutos.\n\nÉ o mesmo tipo de imagem que o CardioIA analisou na Fase 4 do projeto."
+              }
+            ],
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "dialog_node": "ex_eco",
+      "parent": "exames",
+      "previous_sibling": "ex_eletro"
+    },
+    {
+      "type": "standard",
+      "conditions": "@exame:teste_ergometrico",
+      "output": {
+        "generic": [
+          {
+            "response_type": "text",
+            "values": [
+              {
+                "text": "O teste ergométrico avalia o coração durante o esforço, geralmente na esteira.\n\nPreparo habitual: roupas e tênis confortáveis, evitar refeição pesada e cafeína antes, e confirmar com o médico quais medicamentos suspender."
+              }
+            ],
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "dialog_node": "ex_ergometrico",
+      "parent": "exames",
+      "previous_sibling": "ex_eco"
+    },
+    {
+      "type": "standard",
+      "conditions": "@exame:holter",
+      "output": {
+        "generic": [
+          {
+            "response_type": "text",
+            "values": [
+              {
+                "text": "O Holter registra o ritmo cardíaco por 24 horas ou mais, durante a rotina normal.\n\nÉ útil quando os sintomas são intermitentes, como palpitações e tonturas. Mantenha um diário dos horários em que sentir algo."
+              }
+            ],
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "dialog_node": "ex_holter",
+      "parent": "exames",
+      "previous_sibling": "ex_ergometrico"
+    },
+    {
+      "type": "standard",
+      "conditions": "@exame:exame_sangue",
+      "output": {
+        "generic": [
+          {
+            "response_type": "text",
+            "values": [
+              {
+                "text": "Os exames de sangue cardiológicos mais comuns são o perfil lipídico (colesterol e triglicérides), a glicemia e, em quadros agudos, a troponina.\n\nO jejum, quando necessário, costuma ser de 8 a 12 horas — confirme na orientação do pedido médico."
+              }
+            ],
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "dialog_node": "ex_sangue",
+      "parent": "exames",
+      "previous_sibling": "ex_holter"
+    },
+    {
+      "type": "standard",
+      "conditions": "true",
+      "output": {
+        "generic": [
+          {
+            "response_type": "text",
+            "values": [
+              {
+                "text": "Posso explicar eletrocardiograma, ecocardiograma, teste ergométrico, Holter e exames de sangue. Sobre qual deles você quer saber?"
+              }
+            ],
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "dialog_node": "ex_geral",
+      "parent": "exames",
+      "previous_sibling": "ex_sangue"
+    },
+    {
+      "type": "standard",
+      "title": "Dúvida sobre medicamento",
+      "conditions": "#duvida_medicamento",
+      "output": {
+        "generic": [
+          {
+            "response_type": "text",
+            "values": [
+              {
+                "text": "Não posso orientar dose, troca ou interrupção de medicamento — isso é decisão exclusiva do profissional que prescreveu.\n\nO que posso dizer com segurança:\n• nunca interrompa remédio de pressão ou anticoagulante por conta própria;\n• em caso de dose esquecida, siga a bula ou consulte seu médico ou farmacêutico;\n• leve a lista atualizada dos seus medicamentos em toda consulta.\n\nQuer que eu abra uma solicitação de consulta para esclarecer isso?"
+              }
+            ],
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "context": {
+        "falhas": 0
+      },
+      "digress_in": "returns",
+      "dialog_node": "medicamento",
+      "parent": null,
+      "previous_sibling": "exames"
+    },
+    {
+      "type": "standard",
+      "title": "Agendamento de consulta",
+      "conditions": "#agendar_consulta",
+      "output": {},
+      "context": {
+        "turno": "<? @turno != null ? @turno.value : null ?>",
+        "fluxo": "agendamento",
+        "falhas": 0
+      },
+      "next_step": {
+        "behavior": "jump_to",
+        "dialog_node": "agendamento_pergunta_turno",
+        "selector": "condition"
+      },
+      "dialog_node": "agendamento",
+      "parent": null,
+      "previous_sibling": "medicamento"
+    },
+    {
+      "type": "standard",
+      "title": "Monitoramento e dispositivo",
+      "conditions": "#monitoramento_dispositivo",
+      "output": {
+        "generic": [
+          {
+            "response_type": "text",
+            "values": [
+              {
+                "text": "O módulo de monitoramento do CardioIA (Fase 3) acompanha frequência cardíaca e temperatura de forma contínua.\n\nFaixas de referência em repouso para adultos:\n• frequência cardíaca: cerca de 60 a 100 bpm;\n• acima de 120 bpm em repouso, ou abaixo de 50 bpm com sintomas, merece avaliação.\n\nValores isolados dizem pouco: o que importa é a tendência e como você se sente. Sou um protótipo acadêmico do CardioIA e não substituo avaliação médica."
+              }
+            ],
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "context": {
+        "falhas": 0
+      },
+      "digress_in": "returns",
+      "dialog_node": "monitoramento",
+      "parent": null,
+      "previous_sibling": "agendamento"
+    },
+    {
+      "type": "standard",
+      "title": "Atendimento humano",
+      "conditions": "#falar_com_humano",
+      "output": {
+        "generic": [
+          {
+            "response_type": "text",
+            "values": [
+              {
+                "text": "Sem problema. Vou registrar seu pedido de atendimento humano.\n\nUm profissional da equipe CardioIA dará continuidade — nesta simulação acadêmica, o encaminhamento é apenas demonstrativo.\n\nSe for urgente, ligue 192 (SAMU)."
+              }
+            ],
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "context": {
+        "falhas": 0,
+        "encaminhado_humano": true
+      },
+      "digress_in": "does_not_return",
+      "dialog_node": "atendimento_humano",
+      "parent": null,
+      "previous_sibling": "monitoramento"
+    },
+    {
+      "type": "standard",
+      "title": "Agradecimento",
+      "conditions": "#agradecimento && intents[0].confidence > 0.5",
+      "output": {
+        "generic": [
+          {
+            "response_type": "text",
+            "values": [
+              {
+                "text": "Fico feliz em ajudar! Quer falar sobre mais alguma coisa?"
+              },
+              {
+                "text": "Por nada. Posso ajudar em algo mais?"
+              },
+              {
+                "text": "Imagina! Precisa de mais alguma orientação?"
+              }
+            ],
+            "selection_policy": "random"
+          }
+        ]
+      },
+      "context": {
+        "falhas": 0
+      },
+      "dialog_node": "agradecimento",
+      "parent": null,
+      "previous_sibling": "atendimento_humano"
+    },
+    {
+      "type": "standard",
+      "title": "Despedida",
+      "conditions": "#despedida && intents[0].confidence > 0.5",
+      "output": {
+        "generic": [
+          {
+            "response_type": "text",
+            "values": [
+              {
+                "text": "Cuide-se bem! Lembre-se de manter o acompanhamento cardiológico em dia. Sou um protótipo acadêmico do CardioIA e não substituo avaliação médica. Até logo."
+              }
+            ],
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "context": {
+        "falhas": 0
+      },
+      "dialog_node": "despedida",
+      "parent": null,
+      "previous_sibling": "agradecimento"
+    },
+    {
+      "type": "standard",
+      "title": "Triagem de sintoma: sintoma",
+      "conditions": "$fluxo == 'triagem' && $sintoma == null",
+      "output": {
+        "generic": [
+          {
+            "response_type": "text",
+            "values": [
+              {
+                "text": "Qual sintoma você está sentindo? (por exemplo: dor no peito, falta de ar, palpitação, tontura, cansaço ou inchaço nas pernas)"
+              }
+            ],
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "dialog_node": "triagem_sintoma_pergunta_sintoma",
+      "parent": null,
+      "previous_sibling": "despedida"
+    },
+    {
+      "type": "standard",
+      "title": "Triagem de sintoma: contexto_sintoma",
+      "conditions": "$fluxo == 'triagem' && $contexto_sintoma == null",
+      "output": {
+        "generic": [
+          {
+            "response_type": "text",
+            "values": [
+              {
+                "text": "Em que situação isso costuma acontecer: durante esforço (caminhar, subir escadas), em repouso, ou quando você se deita?"
+              }
+            ],
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "dialog_node": "triagem_sintoma_pergunta_contexto_sintoma",
+      "parent": null,
+      "previous_sibling": "triagem_sintoma_pergunta_sintoma"
+    },
+    {
+      "type": "standard",
+      "title": "Triagem de sintoma: duracao",
+      "conditions": "$fluxo == 'triagem' && $duracao == null",
+      "output": {
+        "generic": [
+          {
+            "response_type": "text",
+            "values": [
+              {
+                "text": "Há quanto tempo isso acontece? (começou agora, há horas, há dias ou há semanas)"
+              }
+            ],
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "dialog_node": "triagem_sintoma_pergunta_duracao",
+      "parent": null,
+      "previous_sibling": "triagem_sintoma_pergunta_contexto_sintoma"
+    },
+    {
+      "type": "standard",
+      "title": "Triagem de sintoma: intensidade",
+      "conditions": "$fluxo == 'triagem' && $intensidade == null",
+      "output": {
+        "generic": [
+          {
+            "response_type": "text",
+            "values": [
+              {
+                "text": "Como você classifica a intensidade: leve, moderada ou forte?"
+              }
+            ],
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "dialog_node": "triagem_sintoma_pergunta_intensidade",
+      "parent": null,
+      "previous_sibling": "triagem_sintoma_pergunta_duracao"
+    },
+    {
+      "type": "standard",
+      "title": "Triagem de sintoma: resumo",
+      "conditions": "$fluxo == 'triagem'",
+      "output": {
+        "generic": [
+          {
+            "response_type": "text",
+            "values": [
+              {
+                "text": "Obrigado por relatar. Registrei: sintoma <? $sintoma.replace('_', ' ') ?>, situação em que ocorre <? $contexto_sintoma.replace('_', ' ') ?>, duração <? $duracao ?>, intensidade <? $intensidade ?>.\n\nO que observar nos próximos dias:\n• se o sintoma passou a aparecer também em repouso, e não só ao esforço;\n• se piora, muda de intensidade ou vem acompanhado de outros sinais;\n• sua pressão arterial e frequência cardíaca nos episódios.\n\nProcure atendimento imediato (SAMU 192) se surgir dor forte no peito, falta de ar intensa, suor frio ou desmaio.\n\nRecomendo agendar avaliação com cardiologista. Sou um protótipo acadêmico do CardioIA e não substituo avaliação médica.\nQuer que eu abra uma solicitação de consulta?"
+              }
+            ],
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "context": {
+        "fluxo": ""
+      },
+      "dialog_node": "triagem_sintoma_final",
+      "parent": null,
+      "previous_sibling": "triagem_sintoma_pergunta_intensidade"
+    },
+    {
+      "type": "standard",
+      "title": "Agendamento de consulta: turno",
+      "conditions": "$fluxo == 'agendamento' && $turno == null",
+      "output": {
+        "generic": [
+          {
+            "response_type": "text",
+            "values": [
+              {
+                "text": "Você prefere atendimento no período da manhã ou da tarde?"
+              }
+            ],
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "dialog_node": "agendamento_pergunta_turno",
+      "parent": null,
+      "previous_sibling": "triagem_sintoma_final"
+    },
+    {
+      "type": "standard",
+      "title": "Agendamento de consulta: resumo",
+      "conditions": "$fluxo == 'agendamento'",
+      "output": {
+        "generic": [
+          {
+            "response_type": "text",
+            "values": [
+              {
+                "text": "Solicitação registrada para o período da <? $turno ?>.\n\nA equipe do CardioIA entrará em contato para confirmar data e horário. Esta é uma simulação acadêmica de agendamento."
+              }
+            ],
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "context": {
+        "fluxo": ""
+      },
+      "dialog_node": "agendamento_final",
+      "parent": null,
+      "previous_sibling": "agendamento_pergunta_turno"
+    },
+    {
+      "type": "standard",
+      "title": "Fora de escopo (fallback)",
+      "conditions": "anything_else",
+      "output": {},
+      "context": {
+        "falhas": "<? ($falhas == null ? 0 : $falhas) + 1 ?>"
+      },
+      "next_step": {
+        "behavior": "skip_user_input"
+      },
+      "description": "Tratamento de exceção com contagem de falhas consecutivas.",
+      "dialog_node": "fora_de_escopo",
+      "parent": null,
+      "previous_sibling": "agendamento_final"
+    },
+    {
+      "type": "standard",
+      "conditions": "$falhas > 2",
+      "output": {
+        "generic": [
+          {
+            "response_type": "text",
+            "values": [
+              {
+                "text": "Continuo sem entender e não quero te deixar sem resposta.\n\nVou encaminhar para atendimento humano da equipe CardioIA. Se for urgente, ligue 192 (SAMU)."
+              }
+            ],
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "context": {
+        "falhas": 0,
+        "encaminhado_humano": true
+      },
+      "dialog_node": "fallback_escalar",
+      "parent": "fora_de_escopo",
+      "previous_sibling": null
+    },
+    {
+      "type": "standard",
+      "conditions": "$falhas == 2",
+      "output": {
+        "generic": [
+          {
+            "response_type": "text",
+            "values": [
+              {
+                "text": "Desculpe, ainda não consegui entender. Posso ajudar com:\n• sintomas (dor no peito, falta de ar, palpitação);\n• fatores de risco (pressão, colesterol, diabetes);\n• exames cardiológicos;\n• prevenção e hábitos;\n• agendamento de consulta.\n\nQual desses assuntos você quer?"
+              }
+            ],
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "dialog_node": "fallback_menu",
+      "parent": "fora_de_escopo",
+      "previous_sibling": "fallback_escalar"
+    },
+    {
+      "type": "standard",
+      "conditions": "true",
+      "output": {
+        "generic": [
+          {
+            "response_type": "text",
+            "values": [
+              {
+                "text": "Não tenho certeza de que entendi. Pode reformular com outras palavras?"
+              }
+            ],
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "dialog_node": "fallback_reformular",
+      "parent": "fora_de_escopo",
+      "previous_sibling": "fallback_menu"
+    }
+  ],
+  "counterexamples": [
+    {
+      "text": "asdfgh"
+    },
+    {
+      "text": "xpto blablabla"
+    },
+    {
+      "text": "zzz qqq www"
+    },
+    {
+      "text": "kkkkkk"
+    },
+    {
+      "text": "aaaa bbbb cccc"
+    },
+    {
+      "text": "teste 123"
+    },
+    {
+      "text": "qwerty"
+    },
+    {
+      "text": "lorem ipsum dolor"
+    },
+    {
+      "text": "1234567"
+    },
+    {
+      "text": "??????"
+    },
+    {
+      "text": "quanto custa o bitcoin"
+    },
+    {
+      "text": "qual a receita de bolo de cenoura"
+    },
+    {
+      "text": "quem ganhou o jogo ontem"
+    },
+    {
+      "text": "qual a previsão do tempo"
+    }
+  ],
+  "metadata": {
+    "api_version": {
+      "major_version": "v2",
+      "minor_version": "2018-11-08"
+    }
+  },
+  "system_settings": {
+    "disambiguation": {
+      "enabled": false
+    }
+  }
+}
