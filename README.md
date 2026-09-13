@@ -28,8 +28,7 @@
 | 2 | Estetoscópio Digital | Concluída | [FASE 2](#fase-2--estetoscópio-digital) |
 | 3 | IoT, Edge, MQTT e Node-RED | Concluída | [FASE 3](#fase-3--iot-edge-mqtt-e-node-red) |
 | 4 | Assistente Cardiológico Virtual (Visão) | Concluída | [FASE 4](#fase-4--assistente-cardiológico-virtual-visão-computacional) |
-
-Checklist detalhado da Fase 4: [docs/fase4-plano-checklist.md](docs/fase4-plano-checklist.md).
+| 5 | Assistente Cardiológico Conversacional | Concluída | [FASE 5](#fase-5--assistente-cardiológico-conversacional-chatbot) |
 
 ---
 
@@ -50,7 +49,12 @@ cap1-a-busca-de-dados-inteligencia-cardiologica/
 │   ├── fase4_parte1_preprocessamento.ipynb         # Fase 4 — pré-processamento (Colab)
 │   └── fase4_parte2_cnn_classificacao.ipynb        # Fase 4 — CNN + transfer learning (Colab)
 ├── esp32/                           # Fase 3 — firmware Wokwi / PlatformIO, diagram.json, MQTT
-├── app/                             # Fase 4 — protótipo Flask (opcional)
+├── app/                             # Fase 5 — assistente conversacional (Flask + watsonx Assistant)
+│   ├── app.py                       # backend: rotas e orquestração
+│   ├── assistente/                  # Watson, motor local, conhecimento (Fase 2), SQLite
+│   ├── watson/                      # gerador + export do dialog skill + guia de configuração
+│   ├── templates/ static/           # interface de chat
+│   └── testar_assistente.py         # 83 verificações automatizadas
 ├── docs/                            # Relatórios por fase (PDF/MD)
 ├── dashboard/                       # Fase 3 — export de referência Node-RED (JSON)
 └── assets/
@@ -68,8 +72,8 @@ cap1-a-busca-de-dados-inteligencia-cardiologica/
 | **datasets/** | Bases em CSV e TXT: Cleveland (Fase 1), mapa de sintomas, relatos e frases de risco (Fase 2). O XLSX do Cleveland, quando usado, segue o link da Parte 1 (Google Drive). |
 | **notebooks/** | **Fase 2:** estetoscópio digital (regras + TF-IDF). **Fase 4:** pré-processamento e CNN/transfer learning (Colab). |
 | **esp32/** | **Fase 3:** firmware ESP32 (`src/main.cpp`), `diagram.json` (Wokwi), `platformio.ini`, `secrets.h.example` — **não** commitar `secrets.h`. |
-| **app/** | **Fase 4:** protótipo web Flask (`app.py`, `templates/`) — opcional se o grupo usar notebook interativo. |
-| **docs/** | Relatórios por fase: Fase 3 (`relatorio_fase3_parte*.pdf`); Fase 4 [`relatorio_fase4_parte1.md`](docs/relatorio_fase4_parte1.md), [`relatorio_fase4_parte2.md`](docs/relatorio_fase4_parte2.md); checklist [fase4-plano-checklist.md](docs/fase4-plano-checklist.md). |
+| **app/** | **Fase 5:** assistente conversacional — backend Flask, integração watsonx Assistant, interface de chat e testes. |
+| **docs/** | Relatórios por fase: Fase 3 [`parte1`](docs/relatorio_fase3_parte1.pdf) e [`parte2`](docs/relatorio_fase3_parte2.pdf); Fase 4 [`parte1`](docs/relatorio_fase4_parte1.pdf) e [`parte2`](docs/relatorio_fase4_parte2.pdf); Fase 5 [`parte1`](docs/relatorio_fase5_parte1.md). |
 | **dashboard/** | **Fase 3:** `dashboard-node-red.json` (fluxo de referência; credenciais devem ser reconfiguradas após import). |
 | **assets/fase3/** | **Fase 3:** imagens de evidência (simulador, MQTT Explorer, Node-RED). |
 | **assets/fase4/** | **Fase 4:** prints de métricas (matriz de confusão, curvas de treino, comparação CNN vs transfer learning). |
@@ -405,16 +409,156 @@ Implementado como **notebook interativo** (Parte 2): upload de ecocardiograma �
 Fase 4/
 ├── notebooks/fase4_parte1_preprocessamento.ipynb
 ├── notebooks/fase4_parte2_cnn_classificacao.ipynb
-├── docs/relatorio_fase4_parte1.md
-├── docs/relatorio_fase4_parte2.md
-├── docs/fase4-plano-checklist.md
+├── docs/relatorio_fase4_parte1.pdf
+├── docs/relatorio_fase4_parte2.pdf
 └── assets/fase4/                    # evidências: matrizes, curvas, comparacao_metricas.csv
 ```
 
 ---
 
+# FASE 5 — Assistente Cardiológico Conversacional (Chatbot)
+
+## 📜 Descrição
+
+Na **Fase 5**, o CardioIA ganha voz: um **assistente conversacional de atendimento
+inicial em saúde cardiológica**, modelado no **IBM watsonx Assistant** (intents,
+entities e dialog nodes), integrado a um **backend Flask** pela API do serviço e
+apresentado numa **interface web de chat**.
+
+O assistente orienta, organiza e encaminha — **não diagnostica, não prescreve e não
+ajusta medicação**. Esse limite está codificado no fluxo de diálogo, não apenas
+declarado no rodapé.
+
+## 🎬 Vídeo da entrega
+
+- **YouTube:** *(a publicar — vídeo de até 3 minutos)*
+
+### Conexão com fases anteriores
+
+| Fase | O que alimenta a Fase 5 |
+|------|-------------------------|
+| **Fase 1** | Contexto clínico e faixas de referência do dataset Cleveland |
+| **Fase 2** | `mapa_conhecimento.csv` (31 pares sintoma → doença) e `frases_risco.csv` (303 relatos rotulados) enriquecem as respostas do chatbot |
+| **Fase 3** | O assistente explica os dados do monitoramento contínuo (BPM, temperatura) |
+| **Fase 4** | O assistente contextualiza o ecocardiograma analisado pela CNN |
+
+## 🧩 Arquitetura
+
+```
+Interface HTML ──POST /api/mensagem──▶ Backend Flask
+                                         ├─▶ watsonx Assistant  (NLU + árvore de diálogo)
+                                         │     └─ indisponível? motor local (mesmo skill)
+                                         ├─▶ Conhecimento da Fase 2 (regras + risco)
+                                         └─▶ SQLite (sessões e mensagens)
+```
+
+## 📜 Parte 1 — Assistente conversacional com NLP
+
+| Item | Artefato | Status |
+|------|----------|--------|
+| Export do assistente (JSON) | [`app/watson/cardioia_dialog_skill.json`](app/watson/cardioia_dialog_skill.json) | ✅ |
+| Código-fonte do backend | [`app/app.py`](app/app.py) + [`app/assistente/`](app/assistente/) | ✅ |
+| Integração com a API do Watson | [`app/assistente/watson_cliente.py`](app/assistente/watson_cliente.py) | ✅ |
+| Relatório do fluxo conversacional | [`docs/relatorio_fase5_parte1.md`](docs/relatorio_fase5_parte1.md) | ✅ |
+| Guia de configuração no IBM Cloud | [`app/watson/COMO_CONFIGURAR.md`](app/watson/COMO_CONFIGURAR.md) | ✅ |
+
+**Conteúdo modelado:** 13 intenções · 116 exemplos de treino · 8 entidades · 39 valores
+· 41 nós de diálogo · 14 contraexemplos — **parte derivada dos datasets da Fase 2**
+(ver abaixo). Importado e validado numa instância real do watsonx Assistant.
+
+| Grupo | Intenções |
+|-------|-----------|
+| Sociais | `saudacao`, `agradecimento`, `despedida`, `capacidades_assistente` |
+| Clínicas | `emergencia_cardiaca`, `relatar_sintoma`, `duvida_fator_risco`, `prevencao_habitos`, `duvida_exame`, `duvida_medicamento` |
+| Serviço | `agendar_consulta`, `monitoramento_dispositivo`, `falar_com_humano` |
+
+**Entidades:** `@sintoma` (13 valores), `@contexto` (4), `@caracteristica`,
+`@intensidade`, `@duracao`, `@fator_risco` (7), `@exame` (5), `@turno` — todas com
+sinônimos coloquiais, porque o paciente diz "meu coração dispara", não "taquicardia".
+
+**Reaproveitamento da Fase 2 no próprio skill.** O vocabulário do chatbot não foi
+inventado do zero: `mapa_conhecimento.csv` alimenta os sinônimos das entidades
+(**31 dos 36 termos**; os 5 isolados e ambíguos — `aperto`, `peito`, `tórax`,
+`pressão`, `medo` — ficam de fora com justificativa declarada) e
+`sintomas_pacientes.txt` fornece **9 dos 10 relatos** como exemplos reais de treino.
+Se a Fase 2 ganhar um termo novo, a geração do skill **falha** apontando qual ficou sem
+classificação — as duas camadas não divergem em silêncio.
+
+A entidade `@contexto` (esforço, repouso, deitado, inclinar, irradiação) veio dessa
+derivação e é clinicamente decisiva: é o que separa **angina estável** (dor ao esforço),
+**angina instável** (dor em repouso) e **pericardite** (dor ao deitar ou inclinar) nos
+pares do mapa de conhecimento.
+
+**Três decisões que sustentam o fluxo:**
+
+1. **Emergência é avaliada antes de tudo** e interrompe qualquer coleta em andamento —
+   por intenção ou por combinação clínica (`dor no peito + suor frio`, `dor no peito +
+   dor irradiando para o braço`, desmaio), o que mantém a sensibilidade mesmo quando o
+   classificador de intenção fica abaixo do limiar.
+2. **Coleta em nós condicionais**: triagem (sintoma → situação → duração →
+   intensidade) e agendamento (turno), com **digressão** — se o paciente muda de
+   assunto no meio, o assistente responde e retoma a coleta depois. A coleta **não**
+   usa *slots*: dentro deles o Watson consome a fala antes de reavaliar a árvore, e um
+   relato de emergência no meio da triagem era engolido (medido na instância real).
+3. **Fallback escalonado**: reformular → menu de assuntos → atendimento humano.
+
+O JSON do skill **não é editado à mão**: é gerado por
+[`app/watson/gerar_skill_json.py`](app/watson/gerar_skill_json.py), que descreve todo o
+conteúdo em Python legível e resolve as relações entre os nós automaticamente — uma
+única fonte de verdade para o Watson e para o motor local.
+
+## 📜 Parte 2 — Interface de interação
+
+| Item | Artefato | Status |
+|------|----------|--------|
+| Interface funcional integrada ao backend | [`app/templates/index.html`](app/templates/index.html), [`app/static/`](app/static/) | ✅ |
+| Repositório GitHub público organizado | este repositório | ✅ |
+| Vídeo (até 3 min) | *(a publicar)* | ⏳ |
+
+A interface tem duas colunas: a **conversa** e um painel de **leitura do assistente**,
+que mostra em tempo real a intenção reconhecida com a confiança, as entidades clínicas
+extraídas, as hipóteses do mapa de conhecimento da Fase 2 e o indício de risco do
+classificador — tornando visível o que normalmente fica escondido no NLU.
+
+## ▶ Como executar
+
+```bash
+cd app
+pip install -r requirements.txt
+python app.py          # http://127.0.0.1:5000
+```
+
+**Sem credenciais do Watson a aplicação já funciona:** um motor local interpreta o
+*mesmo* dialog skill e a etiqueta no topo indica qual motor está ativo. Para conectar à
+nuvem, siga [`app/watson/COMO_CONFIGURAR.md`](app/watson/COMO_CONFIGURAR.md) e preencha
+o `.env` (modelo em [`app/.env.example`](app/.env.example)).
+
+Testes:
+
+```bash
+cd app && python testar_assistente.py     # 83 verificações
+```
+
+A suíte inclui os **10 relatos reais de `sintomas_pacientes.txt`** (Fase 2) como casos
+de regressão clínica, verificando quais devem virar encaminhamento de urgência e quais
+seguem para triagem.
+
+## 🔐 Governança, ética e limitações
+
+- **Não substitui avaliação médica** — aviso na saudação, no rodapé e nas respostas clínicas.
+- **Encaminhamento de urgência** (SAMU 192) sempre que houver sinal de gravidade.
+- **Escopo recusado por projeto:** dose, troca ou interrupção de medicamento.
+- **LGPD:** dados simulados; o SQLite guarda apenas o texto da conversa, sem
+  identificadores de paciente. Credenciais ficam em `.env`, fora do controle de versão.
+- **Viés conhecido:** o classificador de risco da Fase 2 foi treinado com relatos que
+  descrevem valores clínicos; em falas coloquiais curtas sua confiança cai — por isso
+  ele aparece como *indício*, nunca como conclusão.
+
+---
+
 ## 🗃 Histórico de lançamentos
 
+* **0.5.0** — 06/09/2026 — Fase 5: assistente conversacional em `app/` (Flask + watsonx Assistant), dialog skill com 13 intenções e 50 nós derivado dos datasets da Fase 2, interface de chat, 80 testes e relatório da Parte 1.
 * **0.4.0** — 14/06/2026 — Fase 4: notebooks Parte 1 e 2, relatórios, protótipo Colab, evidências em `assets/fase4/`, CAMUS no Drive (`dataset_cardio/`).
 * **0.3.0** — 09/05/2026 — Fase 3: pasta `esp32/`, `docs/` (relatórios), `dashboard/`, evidências em `assets/fase3/`, link Wokwi e README atualizado.
 * **0.2.0** — 28/03/2026 — Fase 2: notebook único, bases `frases_risco`, `mapa_conhecimento`, `sintomas_pacientes`; README atualizado.
