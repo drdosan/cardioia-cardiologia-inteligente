@@ -431,7 +431,7 @@ declarado no rodapé.
 
 ## 🎬 Vídeo da entrega
 
-- **YouTube:** 
+- **YouTube:** [https://www.youtube.com/watch?v=Q0QLIM_I4Pk](https://www.youtube.com/watch?v=Q0QLIM_I4Pk)
 
 ### Conexão com fases anteriores
 
