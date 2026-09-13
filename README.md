@@ -431,7 +431,7 @@ declarado no rodapé.
 
 ## 🎬 Vídeo da entrega
 
-- **YouTube:** *(a publicar — vídeo de até 3 minutos)*
+- **YouTube:** 
 
 ### Conexão com fases anteriores
 
@@ -459,7 +459,7 @@ Interface HTML ──POST /api/mensagem──▶ Backend Flask
 | Export do assistente (JSON) | [`app/watson/cardioia_dialog_skill.json`](app/watson/cardioia_dialog_skill.json) | ✅ |
 | Código-fonte do backend | [`app/app.py`](app/app.py) + [`app/assistente/`](app/assistente/) | ✅ |
 | Integração com a API do Watson | [`app/assistente/watson_cliente.py`](app/assistente/watson_cliente.py) | ✅ |
-| Relatório do fluxo conversacional | [`docs/relatorio_fase5_parte1.md`](docs/relatorio_fase5_parte1.md) | ✅ |
+| Relatório do fluxo conversacional | [`docs/relatorio_fase5_parte1.pdf`](docs/relatorio_fase5_parte1.pdf) | ✅ |
 | Guia de configuração no IBM Cloud | [`app/watson/COMO_CONFIGURAR.md`](app/watson/COMO_CONFIGURAR.md) | ✅ |
 
 **Conteúdo modelado:** 13 intenções · 116 exemplos de treino · 8 entidades · 39 valores
@@ -513,7 +513,6 @@ conteúdo em Python legível e resolve as relações entre os nós automaticamen
 |------|----------|--------|
 | Interface funcional integrada ao backend | [`app/templates/index.html`](app/templates/index.html), [`app/static/`](app/static/) | ✅ |
 | Repositório GitHub público organizado | este repositório | ✅ |
-| Vídeo (até 3 min) | *(a publicar)* | ⏳ |
 
 A interface tem duas colunas: a **conversa** e um painel de **leitura do assistente**,
 que mostra em tempo real a intenção reconhecida com a confiança, as entidades clínicas
